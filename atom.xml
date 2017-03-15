@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jijiaxin89.com/"/>
-  <updated>2017-03-15T16:50:45.000Z</updated>
+  <updated>2017-03-15T18:12:15.000Z</updated>
   <id>http://jijiaxin89.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hello</title>
+    <link href="http://jijiaxin89.com/2017/03/16/hello/"/>
+    <id>http://jijiaxin89.com/2017/03/16/hello/</id>
+    <published>2017-03-15T18:11:17.000Z</published>
+    <updated>2017-03-15T18:12:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>test </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;test &lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="test" scheme="http://jijiaxin89.com/categories/test/"/>
+    
+    
+      <category term="test" scheme="http://jijiaxin89.com/tags/test/"/>
+    
+  </entry>
   
   <entry>
     <title>即将新的开始</title>
@@ -821,69 +845,6 @@
       &lt;h3 id=&quot;关于热修复&quot;&gt;&lt;a href=&quot;#关于热修复&quot; class=&quot;headerlink&quot; title=&quot;关于热修复&quot;&gt;&lt;/a&gt;关于热修复&lt;/h3&gt;&lt;h4 id=&quot;DEX分包&quot;&gt;&lt;a href=&quot;#DEX分包&quot; class=&quot;headerlink&quot; title=&quot;DEX分包&quot;&gt;&lt;/a&gt;DEX分包&lt;/h4&gt;&lt;p&gt;ClassLoader方案基于的是android dex分包方案的&lt;/p&gt;
 &lt;h5 id=&quot;方法数天花板&quot;&gt;&lt;a href=&quot;#方法数天花板&quot; class=&quot;headerlink&quot; title=&quot;方法数天花板&quot;&gt;&lt;/a&gt;方法数天花板&lt;/h5&gt;&lt;p&gt;方法数量过多，编译时出错，提示：&lt;br&gt;Conversion to Dalvik format failed:Unable to execute dex: method ID not in [0, 0xffff]: 65536&lt;br&gt;原因：因为在Dalvik指令集里，调用方法的invoke-kind指令中，method reference index只给了16bits，最多能调用65535个方法，所以在生成dex文件的过程中，当方法数超过65535就会报错。&lt;br&gt;This number is significant in that it represents the total number of references that can be invoked by the code within a single Dalvik Executable (dex) bytecode file. &lt;/p&gt;
 &lt;h6 id=&quot;插件化&quot;&gt;&lt;a href=&quot;#插件化&quot; class=&quot;headerlink&quot; title=&quot;插件化&quot;&gt;&lt;/a&gt;插件化&lt;/h6&gt;&lt;p&gt;解决方案：使用的最多的是插件化，即将一些独立的功能做成一个单独的apk，当打开的时候使用DexClassLoader动态加载，然后使用反射机制来调用插件中的类和方法。&lt;br&gt;方案弊病：1.插件化只适合一些比较独立的模块；2.必须通过反射机制去调用插件的类和方法，因此，必须搭配一套插件框架来配合使用；&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Android技术小栈" scheme="http://jijiaxin89.com/categories/Android%E6%8A%80%E6%9C%AF%E5%B0%8F%E6%A0%88/"/>
-    
-    
-      <category term="经验" scheme="http://jijiaxin89.com/tags/%E7%BB%8F%E9%AA%8C/"/>
-    
-      <category term="Android栈" scheme="http://jijiaxin89.com/tags/Android%E6%A0%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Activity的onRestoreInstanceState()</title>
-    <link href="http://jijiaxin89.com/2015/11/23/Activity%E7%9A%84onRestoreInstanceState()/"/>
-    <id>http://jijiaxin89.com/2015/11/23/Activity的onRestoreInstanceState()/</id>
-    <published>2015-11-23T08:13:31.000Z</published>
-    <updated>2017-03-15T16:50:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>本文是官方文档的笔记。</p>
-</blockquote>
-<h4 id="Activity的销毁和恢复行为"><a href="#Activity的销毁和恢复行为" class="headerlink" title="Activity的销毁和恢复行为"></a>Activity的销毁和恢复行为</h4><h5 id="正常应用行为而销毁："><a href="#正常应用行为而销毁：" class="headerlink" title="正常应用行为而销毁："></a>正常应用行为而销毁：</h5><ul>
-<li>用户按返回按钮</li>
-<li>您的Activity通过调用 <code>finish()</code>示意自己的销毁</li>
-</ul>
-<h5 id="非正常销毁："><a href="#非正常销毁：" class="headerlink" title="非正常销毁："></a>非正常销毁：</h5><p>如果Activity当前被停止或长期未使用，或者前台Activity需要更多资源以致系统必须关闭后台进程恢复内存，系统也可能会销毁Activity。</p>
-<h5 id="正常销毁："><a href="#正常销毁：" class="headerlink" title="正常销毁："></a>正常销毁：</h5><p>Activity的实例概念将永久消失，因为行为指示不再需要Activity。<br><a id="more"></a></p>
-<h5 id="非正常销毁：-1"><a href="#非正常销毁：-1" class="headerlink" title="非正常销毁："></a>非正常销毁：</h5><p>如果系统因系统局限性（而非正常应用行为）而销毁Activity，尽管 Activity 实际实例已不在，系统会记住其存在，这样，如果用户导航回实例，系统会使用描述Activity被销毁时状态的一组已保存数据创建Activity的新实例。<br>系统用于恢复先前状态的已保存数据被称为“实例状态”，并且是 Bundle 对象中存储的键值对集合。</p>
-<p>默认情况下，系统会使用 Bundle 实例状态保存您的Activity布局（比如，输入到 EditText 对象中的文本值）中有关每个 View 对象的信息。<br>这样，如果您的Activity实例被销毁并重新创建，布局状态便恢复为其先前的状态，且无需编写代码，系统已经实现。 但是，您的Activity可能具有您要恢复的更多状态信息，比如跟踪用户在Activity中进度的<strong>成员变量</strong>。</p>
-<blockquote>
-<p>为了 Android 系统恢复Activity中视图的状态，每个视图必须具有 android:id 属性提供的唯一 ID。</p>
-</blockquote>
-<p>要保存有关Activity状态的其他数据，您必须替代 <code>onSaveInstanceState()</code> 回调方法。当用户要离开Activity并在Activity意外销毁时向其传递将保存的 Bundle 对象时，系统会调用此方法。 如果系统必须稍后重新创建Activity实例，它会将相同的 Bundle 对象同时传递给 <code>onRestoreInstanceState()</code> 和 <code>onCreate()</code> 方法。<br><a href="http://developer.android.com/images/training/basics/basic-lifecycle-savestate.png" target="_blank" rel="external"></a></p>
-<p>Resumed(visible)—–&gt;<code>onSaveInstanceState()</code>—–&gt;Destroyed<br>app—–<code>onCreate()</code>—–&gt;Created—–&gt;<code>onRestoreInstanceState()</code>—–&gt;Resumed(visible)</p>
-<h4 id="保存Activity状态"><a href="#保存Activity状态" class="headerlink" title="保存Activity状态"></a>保存Activity状态</h4><p>当您的Activity开始停止时，系统会调用 <code>onSaveInstanceState()</code>以便您的Activity可以保存带有键值对集合的状态信息。 此方法的默认实现保存有关Activity视图层次的状态信息，例如 EditText 小工具中的文本或ListView 的滚动位置。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> String STATE_SCORE = <span class="string">"playerScore"</span>;</div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> String STATE_LEVEL = <span class="string">"playerLevel"</span>;</div><div class="line">...</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="comment">// Save the user's current game state</span></div><div class="line">    savedInstanceState.putInt(STATE_SCORE, mCurrentScore);</div><div class="line">    savedInstanceState.putInt(STATE_LEVEL, mCurrentLevel);</div><div class="line">    </div><div class="line">    <span class="comment">// Always call the superclass so it can save the view hierarchy state</span></div><div class="line">    <span class="keyword">super</span>.onSaveInstanceState(savedInstanceState);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：始终调用 <code>onSaveInstanceState()</code> 的超类实现，以便默认实现可以保存视图层次的状态。</p>
-</blockquote>
-<h4 id="恢复Activity状态"><a href="#恢复Activity状态" class="headerlink" title="恢复Activity状态"></a>恢复Activity状态</h4><p>当您的Activity在先前销毁之后重新创建时，您可以从系统向Activity传递的 Bundle 恢复已保存的状态。<code>onCreate()</code> 和 <code>onRestoreInstanceState()</code> 回调方法均接收包含实例状态信息的相同 Bundle。</p>
-<p><strong>因为无论系统正在创建Activity的新实例还是重新创建先前的实例</strong>，都会调用 <code>onCreate()</code> 方法，因此您必须在尝试读取它之前检查状态 Bundle 是否为 null。 如果为 null，则系统将创建Activity的新实例，而不是恢复已销毁的先前实例。</p>
-<p>说白了就是无论新创建activity实例，还是恢复activity实例，都是新建实例，区别仅仅是目的纯洁的创建，还有有目的的去新建个用来取代，所以<code>oncreate()</code>参数都有Bundle</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState); <span class="comment">// Always call the superclass first</span></div><div class="line">   </div><div class="line">    <span class="comment">// Check whether we're recreating a previously destroyed instance</span></div><div class="line">    <span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="comment">// Restore value of members from saved state</span></div><div class="line">        mCurrentScore = savedInstanceState.getInt(STATE_SCORE);</div><div class="line">        mCurrentLevel = savedInstanceState.getInt(STATE_LEVEL);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// Probably initialize members with default values for a new instance</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>您可以选择实现<strong>系统在 <code>onStart()</code> 方法之后调用的 <code>onRestoreInstanceState()</code> </strong>，而不是在<code>onCreate()</code> 期间恢复状态。 系统只在存在要恢复的已保存状态时调用 <code>onRestoreInstanceState()</code> ，因此您无需检查 Bundle 是否为 null：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRestoreInstanceState</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="comment">// Always call the superclass so it can restore the view hierarchy</span></div><div class="line">    <span class="keyword">super</span>.onRestoreInstanceState(savedInstanceState);</div><div class="line">   </div><div class="line">    <span class="comment">// Restore state members from saved instance</span></div><div class="line">    mCurrentScore = savedInstanceState.getInt(STATE_SCORE);</div><div class="line">    mCurrentLevel = savedInstanceState.getInt(STATE_LEVEL);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>始终调用 <code>onSaveInstanceState()</code> 的超类实现，以便默认实现可以恢复视图层次的状态,且留意顺序，保存的时候先保存再调超类，回复的时候先调超类恢复view状态，再读出来保存的变量。</p>
-</blockquote>
-<p><a href="http://developer.android.com/intl/zh-cn/training/basics/activity-lifecycle/recreating.html" target="_blank" rel="external">http://developer.android.com/intl/zh-cn/training/basics/activity-lifecycle/recreating.html</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是官方文档的笔记。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&quot;Activity的销毁和恢复行为&quot;&gt;&lt;a href=&quot;#Activity的销毁和恢复行为&quot; class=&quot;headerlink&quot; title=&quot;Activity的销毁和恢复行为&quot;&gt;&lt;/a&gt;Activity的销毁和恢复行为&lt;/h4&gt;&lt;h5 id=&quot;正常应用行为而销毁：&quot;&gt;&lt;a href=&quot;#正常应用行为而销毁：&quot; class=&quot;headerlink&quot; title=&quot;正常应用行为而销毁：&quot;&gt;&lt;/a&gt;正常应用行为而销毁：&lt;/h5&gt;&lt;ul&gt;
-&lt;li&gt;用户按返回按钮&lt;/li&gt;
-&lt;li&gt;您的Activity通过调用 &lt;code&gt;finish()&lt;/code&gt;示意自己的销毁&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&quot;非正常销毁：&quot;&gt;&lt;a href=&quot;#非正常销毁：&quot; class=&quot;headerlink&quot; title=&quot;非正常销毁：&quot;&gt;&lt;/a&gt;非正常销毁：&lt;/h5&gt;&lt;p&gt;如果Activity当前被停止或长期未使用，或者前台Activity需要更多资源以致系统必须关闭后台进程恢复内存，系统也可能会销毁Activity。&lt;/p&gt;
-&lt;h5 id=&quot;正常销毁：&quot;&gt;&lt;a href=&quot;#正常销毁：&quot; class=&quot;headerlink&quot; title=&quot;正常销毁：&quot;&gt;&lt;/a&gt;正常销毁：&lt;/h5&gt;&lt;p&gt;Activity的实例概念将永久消失，因为行为指示不再需要Activity。&lt;br&gt;
     
     </summary>
     
