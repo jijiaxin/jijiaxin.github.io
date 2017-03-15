@@ -1,0 +1,314 @@
+	<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>REST设计风格的理解 | 微凉一季</title>
+  <meta name="author" content="季訫">
+  
+  <meta name="description" content="往事如烟，随风而逝">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="REST设计风格的理解"/>
+  <meta property="og:site_name" content="微凉一季"/>
+
+  
+  
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#009688">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#009688">
+		<!-- favicon end -->
+    <!-- <link href="/favicon.ico" rel="icon"> -->
+  
+
+  <!-- toc -->
+  <link rel="stylesheet" href="/libs/tocify/jquery.tocify.css" media="screen" type="text/css">
+
+  <!-- <link rel="stylesheet" href="/libs/bs/css/bootstrap.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- material design -->
+	<!-- <link rel="stylesheet" href="/libs/bs-material/css/ripples.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/ripples.min.css" media="screen" type="text/css">
+  <!-- <link rel="stylesheet" href="/libs/bs-material/css/material.min.css" media="screen" type="text/css"> -->
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/material.min.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/highlight.light.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+  
+  <!-- 百度统计 -->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?965a6e7fe7dbf925b4191360c79b5e64";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+  
+
+  
+
+  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/libs/jquery-2.0.3.min.js" type="text/javascript"><\/script>')</script>
+
+</head>
+
+ 	<body>
+	  <nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">菜单</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">微凉一季</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="/" title="">
+                    <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives" title="">
+                    <i class="fa fa-list"></i>存档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/about" title="">
+                    <i class="fa fa-info-circle"></i>关于
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/atom.xml" title="这是一个订阅源">
+                    <i class="fa fa-rss"></i>RSS
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	  <div class="container" >
+	    <div class="row">
+	
+	<div class="col-md-9 center-content">
+	
+
+		<div class="content">
+			<!-- index -->
+		   
+
+			  		<h2>REST设计风格的理解</h2>
+					
+					<div>
+						<span class="post-time">2015-08-17 00:23:11</span>
+					</div>	
+					
+
+					<div class="article-content">
+						<p>REST，即Representational State Transfer 表现层状态转化<br>是Fielding（ HTTP规范的主要编写者之一）提出并定义的一套对互联网软件的架构原则，REST是一种设计风格而不是标准<br>我们可以根据这些原则设计以系统资源为中心的 Web 服务<br>如果你在设计应用程序时能坚持REST原则，那就预示着你将会得到一个使用了优质Web架构（这将让你受益）的系统。</p>
+<h2 id="资源表现层"><a href="#资源表现层" class="headerlink" title="资源表现层"></a>资源表现层</h2><p>“资源”是一种信息实体，它可以有多种外在表现形式。”资源”具体呈现出来的形式，叫做它的”表现层”（Representation）。<br>比如，文本可以用txt格式表现，也可以用HTML格式、XML格式、JSON格式表现，甚至可以采用二进制格式；图片可以用JPG格式表现，也可以用PNG格式表现。</p>
+<blockquote>
+<p>URI只代表资源的实体，不代表它的形式。严格地说，有些网址最后的”.html”后缀名是不必要的，因为这个后缀名表示格式，属于”表现层”范畴，而URI应该只代表”资源”的位置。它的具体表现形式，应该在HTTP请求的头信息中用Accept和Content-Type字段指定，这两个字段才是对”表现层”的描述。</p>
+<p>REST中的资源所指的不是数据，而是数据和表现形式的组合，比如“最新访问的10位会员”和“最活跃的10位会员”在数据上可能有重叠或者完全相同，而由于他们的表现形式不同，所以被归为不同的资源，这也就是为什么REST的全名是Representational State Transfer的原因。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="状态转换"><a href="#状态转换" class="headerlink" title="状态转换"></a>状态转换</h2><p>互联网通信协议HTTP协议，是一个无状态协议。这意味着，所有的状态都保存在服务器端。因此，如果客户端想要操作服务器，必须通过某种手段，让服务器端发生”状态转化”（State Transfer）。而这种转化是建立在表现层之上的，所以就是”表现层状态转化”。<br>客户端用到的手段，只能是HTTP协议。具体来说，就是HTTP协议里面，四个表示操作方式的动词：GET、POST、PUT、DELETE。它们分别对应四种基本操作：GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源。</p>
+<p>为使客户端程序能与你的资源相互协作，资源应该正确地实现默认的应用协议（HTTP），也就是使用标准的GET、PUT、POST和DELETE方法。</p>
+<blockquote>
+<p>GET方法具有幂等性 [指多个相同请求返回相同的结果] ——如果你发送了一个GET请求没有得到结果，你可能不知道原因是请求未能到达目的地，还是响应在反馈的途中丢失了。幂等性保证了你可以简单地再发送一次请求解决问题。幂等性同样适用于PUT（基本的含义是“更新资源数据，如果资源不存在的话，则根据此URI创建一个新的资源”）和DELETE（你完全可以一遍又一遍地操作它，直到得出结论——删除不存在的东西没有任何问题）方法。POST方法，通常表示“创建一个新资源”，也能被用于调用任意过程，因而它既不安全也不具有幂等性。</p>
+</blockquote>
+<ul>
+<li>每一个URI代表一种资源；因为”资源”表示一种实体，所以应该是名词，URI不应该有动词，动词应该放在HTTP协议中。</li>
+<li>客户端和服务器之间，传递这种资源的某种表现层；</li>
+<li>客户端通过四个HTTP <strong>动词</strong>，对服务器端资源进行操作，实现”表现层状态转化”。</li>
+</ul>
+<p>如果某些动作是HTTP动词表示不了的，你就应该把动作做成一种资源。比如:seach的动作，可以把seach抽象看成资源，因此要创建create和index(查询)方法，create用来在用户点击“搜索”按钮是通过HTTP POST把关键字传给server，然后index（retrieve）则用来显示搜索结果。这样一来，我们还可以记录用户的搜索历史。使用同样的方法，我们也可以对login应用REST，即每次login动作是一个资源。</p>
+<h2 id="设计RESTful-API"><a href="#设计RESTful-API" class="headerlink" title="设计RESTful API"></a>设计RESTful API</h2><blockquote>
+<p>REST架构给我们带来开发系统过程中的一种新的思维方式：通过url来设计系统的结构。根据REST，每个url都代表一个resource，而整个系统就是由这些resource组成的。因此，如果url是设计良好的，那么系统的结构就也应该是设计良好的。对于非高手级的开发人员来说，考虑一个系统如何架构总是一个很抽象的问题。敏捷开发所提倡的Test Driven Development，其好处之一（可能也是最大的好处）就是可以通过testcase直观地设计系统的接口。比如在还没有创建一个class的时候就编写一个testcase，虽然设置不能通过编译，但是testcase中的方法调用可以很好地从class使用者的角度反映出需要的接口，从而为class的设计提供了直观的表现。这与在REST架构中通过url设计系统结构非常类似。虽然我们连一个功能都没有实现，但是我们可以先设计出我们认为合理的url，这些url甚至不能连接到任何page或action，但是它们直观地告诉我们：系统对用户的访问接口就应该是这样。根据这些url，我们可以很方便地设计系统的结构。</p>
+</blockquote>
+<p>从REST的概念上来看，所有可以被抽象为资源的东东都可以使用RESTful的url</p>
+<h3 id="结构："><a href="#结构：" class="headerlink" title="结构："></a>结构：</h3><blockquote>
+<p><a href="https://www.jijiaxin89.com/v1/articles" target="_blank" rel="external">https://www.jijiaxin89.com/v1/articles</a></p>
+</blockquote>
+<ol>
+<li>协议 https：</li>
+<li>域名 jijiaxin89</li>
+<li>版本 v1 v2</li>
+<li>路径 /articles  资源多用复数，某个资源 /articles/post1</li>
+<li><p>过滤信息 </p>
+<pre><code>?limit=10：指定返回记录的数量
+?offset=10：指定返回记录的开始位置。
+?page=2&amp;per_page=100：指定第几页，以及每页的记录数。
+</code></pre></li>
+<li><p>http动作（动词）</p>
+<blockquote>
+<p>GET（SELECT）：从服务器取出资源（一项或多项）。<br>POST（CREATE）：在服务器新建一个资源。<br>PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。<br>DELETE（DELETE）：从服务器删除资源。<br>PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。<br>HEAD：获取资源的元数据。<br>OPTIONS：获取信息，关于资源的哪些属性是客户端可以改变的。</p>
+</blockquote>
+</li>
+<li><p>状态码 下面单独说</p>
+</li>
+<li><p>错误处理  如果状态码是4xx，就应该向用户返回出错信息。一般来说，返回的信息中将error作为键名，出错信息作为键值即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    error: <span class="string">"Invalid API key"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>返回结果</p>
+<blockquote>
+<ul>
+<li>GET /collection：返回资源对象的列表（数组）</li>
+<li>GET /collection/resource：返回单个资源对象</li>
+<li>POST /collection：返回新生成的资源对象</li>
+<li>PUT /collection/resource：返回完整的资源对象</li>
+<li>PATCH /collection/resource：返回完整的资源对象</li>
+<li>DELETE /collection/resource：返回一个空文档</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>设计uri 可以把版本号放入url（更直观），也可以将版本号放在HTTP头信息中</li>
+</ul>
+<h4 id="http状态码："><a href="#http状态码：" class="headerlink" title="http状态码："></a>http状态码：</h4><table>
+<thead>
+<tr>
+<th>数字</th>
+<th>已定义范围</th>
+<th>分类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1xx</td>
+<td>100~101</td>
+<td>信息提示</td>
+</tr>
+<tr>
+<td>2xx</td>
+<td>200~206</td>
+<td>成功</td>
+</tr>
+<tr>
+<td>3xx</td>
+<td>300~305</td>
+<td>重定向</td>
+</tr>
+<tr>
+<td>4xx</td>
+<td>400~415</td>
+<td>客户端错误</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td>500~505</td>
+<td>服务器错误</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>   200 OK——它的意思是：一切正常；继续执行。<br>    201 Created——我们刚刚创建了一个资源，一切正常。<br>    202 Accepted——服务已经接受了我们的请求，并请我们对Location响应报头里的URI进行轮询（poll）。这在异步处理中相当有用。<br>    303 See Other——我们需要跟另一个资源交互，应该不会出错。<br>    400 Bad Request——我们的请求格式有问题，应重新格式化后再提交。<br>    404 Not Found——服务因为偷懒（或者保密）没有告知请求失败的真实原因，但不管什么原因，我们都得应付它。<br>    409 Conflict——服务器拒绝了我们更新资源状态的请求。我们需要获取资源的当前状态（要么检查响应实体主体，要么做一次GET操作），然后再作打算。<br>    412 Precondition Failed——请求未被处理，因为Etag、If-Match或类似的“哨兵（guard）”报头的值不满足条件。我们需要考虑下一步怎么走。<br>    417 Expectation Failed——幸亏核查一下，服务器不将接受你的请求，所以别真正发送那个请求。<br>    500 Internal Server Error——最偷懒的响应。服务器出错了，而且什么原因都没说。祝你不要碰见它。</p>
+</blockquote>
+<p><a href="http://v5browser.iteye.com/blog/1769789" target="_blank" rel="external">更详尽状态码解析</a></p>
+<h2 id="在android开发中践行REST"><a href="#在android开发中践行REST" class="headerlink" title="在android开发中践行REST"></a>在android开发中践行REST</h2><p>Google I/O 2013推荐的REST架构。<br><img src="\img\rest\android_rest.png" alt=""></p>
+<p>结合ContentPrivider CRUD api 可以设计出接口很清晰的应用</p>
+<blockquote>
+<p>In computing, CRUD is an acronym for create, retrieve, update, and delete. It is used to refer to the basic functions of a database or persistence layer in a software system.</p>
+</blockquote>
+
+					</div>
+
+			  <!-- about -->
+			  
+		</div>
+
+		<!-- pagination -->
+	  
+
+		<div class="comment-section">
+  
+  
+   <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="_posts/REST设计风格的理解.md" data-title="REST设计风格的理解" data-url="http://jijiaxin89.com/2015/08/17/REST设计风格的理解/"></div>
+    <!-- 多说评论框 end -->
+   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'jijiaxin'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  
+
+
+</div>
+	</div>
+
+	
+
+</div>
+
+
+		<footer>
+			
+
+<p>
+  由 <a href="https://hexo.io">hexo</a> 强力驱动 | 搭载 <a href="https://github.com/wayou/hexo-theme-material">material</a> 主题
+</p>
+<p>
+  &copy; 2017 <a href="http://jijiaxin89.com"> 季訫 </a>
+</p>
+<a id="gotop" href="#" title="back to top"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+
+		</footer>
+	  </div>
+
+		<!-- <script src="/libs/bs/js/bootstrap.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script>(typeof $().modal == 'function')|| document.write('<script src="/libs/bs/js/bootstrap.min.js" type="text/javascript"><\/script>')</script>
+
+		<!-- material design -->
+		<!-- <script src="/libs/bs-material/js/ripples.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/ripples.min.js"></script>
+		<!-- <script src="/libs/bs-material/js/material.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/material.min.js"></script>
+		<!-- toc -->
+		<!-- <script src="/libs/tocify/jquery-ui.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/libs/tocify/jquery.tocify.custom.js"></script>
+
+		<script src="/js/main.js"></script>
+
+	</body>
+</html>

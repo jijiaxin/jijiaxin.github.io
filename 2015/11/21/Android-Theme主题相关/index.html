@@ -1,0 +1,254 @@
+	<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android Theme主题菜单相关 | 微凉一季</title>
+  <meta name="author" content="季訫">
+  
+  <meta name="description" content="往事如烟，随风而逝">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Android Theme主题菜单相关"/>
+  <meta property="og:site_name" content="微凉一季"/>
+
+  
+  
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#009688">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#009688">
+		<!-- favicon end -->
+    <!-- <link href="/favicon.ico" rel="icon"> -->
+  
+
+  <!-- toc -->
+  <link rel="stylesheet" href="/libs/tocify/jquery.tocify.css" media="screen" type="text/css">
+
+  <!-- <link rel="stylesheet" href="/libs/bs/css/bootstrap.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- material design -->
+	<!-- <link rel="stylesheet" href="/libs/bs-material/css/ripples.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/ripples.min.css" media="screen" type="text/css">
+  <!-- <link rel="stylesheet" href="/libs/bs-material/css/material.min.css" media="screen" type="text/css"> -->
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/material.min.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/highlight.light.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+  
+  <!-- 百度统计 -->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?965a6e7fe7dbf925b4191360c79b5e64";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+  
+
+  
+
+  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/libs/jquery-2.0.3.min.js" type="text/javascript"><\/script>')</script>
+
+</head>
+
+ 	<body>
+	  <nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">菜单</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">微凉一季</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="/" title="">
+                    <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives" title="">
+                    <i class="fa fa-list"></i>存档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/about" title="">
+                    <i class="fa fa-info-circle"></i>关于
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/atom.xml" title="这是一个订阅源">
+                    <i class="fa fa-rss"></i>RSS
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	  <div class="container" >
+	    <div class="row">
+	
+	<div class="col-md-9 center-content">
+	
+
+		<div class="content">
+			<!-- index -->
+		   
+
+			  		<h2>Android Theme主题菜单相关</h2>
+					
+					<div>
+						<span class="post-time">2015-11-21 13:39:13</span>
+					</div>	
+					
+
+					<div class="article-content">
+						<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><p>学了一下Chris Banes大神的项目。总结一下theme相关的小知识点。先看个定义主题的不错的小case：<br>在values目录下建立两个命名为themes的文件：</p>
+<h4 id="themes-xml"><a href="#themes-xml" class="headerlink" title="themes.xml"></a>themes.xml</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&lt;resources xmlns:android="http://schemas.android.com/apk/res/android"&gt;</div><div class="line"></div><div class="line">    &lt;style name="Platform.Theme.AnDream" parent="Theme.AppCompat.Light.NoActionBar"&gt;</div><div class="line">        &lt;item name="android:windowActionModeOverlay"&gt;true&lt;/item&gt;</div><div class="line">    &lt;/style&gt;</div><div class="line"></div><div class="line">    &lt;style name="Platform.Theme.AnDream.Dark" parent="Theme.AppCompat.NoActionBar"&gt;</div><div class="line">        &lt;item name="android:windowActionModeOverlay"&gt;true&lt;/item&gt;</div><div class="line">    &lt;/style&gt;</div><div class="line"></div><div class="line">    &lt;style name="Base.Theme.AnDream" parent="Platform.Theme.AnDream"&gt;</div><div class="line">        &lt;item name="android:windowContentOverlay"&gt;@null&lt;/item&gt;</div><div class="line">    &lt;/style&gt;</div><div class="line"></div><div class="line">    &lt;style name="Base.Theme.AnDream.Dark" parent="Platform.Theme.AnDream.Dark"&gt;</div><div class="line">        &lt;item name="android:windowContentOverlay"&gt;@null&lt;/item&gt;</div><div class="line">    &lt;/style&gt;</div><div class="line"></div><div class="line">    &lt;style name="Theme.AnDream" parent="Base.Theme.AnDream"&gt;</div><div class="line">        &lt;item name="android:textColorHighlight"&gt;@color/primary_color_translucent&lt;/item&gt;</div><div class="line"></div><div class="line">        &lt;item name="android:progressBarStyleHorizontal"&gt;@style/Widget.AnDream.ProgressBar&lt;/item&gt;</div><div class="line">        &lt;item name="android:ratingBarStyle"&gt;@style/Widget.AnDream.RatingBar&lt;/item&gt;</div><div class="line">        // 这个是自定义主题的属性，在attrs里面</div><div class="line">        &lt;item name="grey_shade"&gt;@color/light_gray&lt;/item&gt;</div><div class="line"></div><div class="line">        &lt;item name="windowActionModeOverlay"&gt;true&lt;/item&gt;</div><div class="line"></div><div class="line">        &lt;item name="colorPrimary"&gt;@color/primary_color&lt;/item&gt;</div><div class="line">        &lt;item name="colorPrimaryDark"&gt;@color/primary_color_dark&lt;/item&gt;</div><div class="line">        &lt;item name="colorAccent"&gt;@color/accent_color&lt;/item&gt;</div><div class="line">    &lt;/style&gt;</div><div class="line"></div><div class="line">    &lt;style name="Theme.AnDream.Images" parent="Base.Theme.AnDream.Dark"&gt;</div><div class="line">        &lt;item name="android:windowBackground"&gt;@android:color/black&lt;/item&gt;</div><div class="line">    &lt;/style&gt;</div><div class="line"></div><div class="line">    &lt;style name="Theme.AnDream.Framed" parent="Theme.AnDream"&gt;</div><div class="line">        &lt;item name="windowActionBarOverlay"&gt;false&lt;/item&gt;</div><div class="line">    &lt;/style&gt;</div><div class="line"></div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure>
+<h4 id="themes-xml-v21-："><a href="#themes-xml-v21-：" class="headerlink" title="themes.xml(v21)："></a>themes.xml(v21)：</h4><a id="more"></a>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;resources&gt;</div><div class="line">    //这里体会一下 设置状态栏透明，设置windowDrawsSystemBarBackgrounds true</div><div class="line">    &lt;style name="Platform.Theme.AnDream" parent="Theme.AppCompat.Light.NoActionBar"&gt;</div><div class="line">        &lt;item name="android:windowDrawsSystemBarBackgrounds"&gt;true&lt;/item&gt;</div><div class="line">        &lt;item name="android:statusBarColor"&gt;@android:color/transparent&lt;/item&gt;</div><div class="line">    &lt;/style&gt;</div><div class="line"></div><div class="line">    &lt;style name="Platform.Theme.AnDream.Dark" parent="Theme.AppCompat.NoActionBar"&gt;</div><div class="line">        &lt;item name="android:windowDrawsSystemBarBackgrounds"&gt;true&lt;/item&gt;</div><div class="line">        &lt;item name="android:statusBarColor"&gt;@android:color/transparent&lt;/item&gt;</div><div class="line">    &lt;/style&gt;</div><div class="line"></div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h4 id="层次比较清晰。"><a href="#层次比较清晰。" class="headerlink" title="层次比较清晰。"></a>层次比较清晰。</h4><ul>
+<li>根据平台分别兼容holo和design的Platform.Theme.AnDream和Platform.Theme.AnDream.Dark</li>
+<li>子base主题：Base.Theme.AnDream和Base.Theme.AnDream.Dark</li>
+<li>然后程序用的主题Theme.AnDream。以及继承自Base.Theme.AnDream.Dark的Theme.AnDream.Images</li>
+<li>最后一个是程序主题Theme.AnDream的一个扩展Theme.AnDream.Framed。</li>
+</ul>
+<p>层次非常清晰，是个不错的建主题的样例，基本各种需要的主题就都有了。</p>
+<p>主题的源头是系统的Theme.AppCompat.Light.NoActionBar和Theme.AppCompat.NoActionBar。兼容包里没有ActionBar的浅色和深色主题，用这组主题方便我们后续自由的使用toolbar。</p>
+<p>另外点进去看到appcompat源码里的：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;style name="Theme.AppCompat.Light.NoActionBar"&gt;</div><div class="line">    &lt;item name="windowActionBar"&gt;false&lt;/item&gt;</div><div class="line">    &lt;item name="android:windowNoTitle"&gt;true&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h4 id="demo里意义比较模糊的属性有："><a href="#demo里意义比较模糊的属性有：" class="headerlink" title="demo里意义比较模糊的属性有："></a>demo里意义比较模糊的属性有：</h4><p>overlays 是覆盖物的意思。</p>
+<ul>
+<li><code>&lt;item name=&quot;android:windowActionModeOverlay&quot;&gt;true&lt;/item&gt;</code>  <blockquote>
+<p>and the actionmode will be shown over the action bar instead of pushing it down.It basically lets AppCompat know that you have a toolbar located in the top of the screen and that it should draw the ActionMode on top of it.<br>ActionMode显示在顶栏，而不是屏幕中的菜单。告诉appcompat你有个toolbar在屏幕顶上，它应该把ActionMode画到toolbar上面。</p>
+</blockquote>
+</li>
+<li><code>&lt;item name=&quot;android:windowContentOverlay&quot;&gt;@null&lt;/item&gt;</code><br>定义contentoverlay的背景的，ContentOverlay背景为null 和actionbar下面的阴影有关</li>
+<li><code>&lt;item name=&quot;android:textColorHighlight&quot;&gt;@color/primary_color_translucent&lt;/item&gt;</code><br>高亮字体颜色</li>
+<li><code>&lt;item name=&quot;android:windowBackground&quot;&gt;@android:color/black&lt;/item&gt;</code><br>屏幕背景色</li>
+<li><code>&lt;item name=&quot;android:windowDrawsSystemBarBackgrounds&quot;&gt;true&lt;/item&gt;</code><br>需要绘制系统操作栏背景</li>
+<li><code>&lt;item name=&quot;android:statusBarColor&quot;&gt;@android:color/transparent&lt;/item&gt;</code>设置状态栏透明</li>
+</ul>
+<h3 id="另外菜单的写法例如："><a href="#另外菜单的写法例如：" class="headerlink" title="另外菜单的写法例如："></a>另外菜单的写法例如：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">    &lt;item android:id=&quot;@+id/new_game&quot;</div><div class="line">          android:icon=&quot;@drawable/ic_new_game&quot;</div><div class="line">          android:title=&quot;@string/new_game&quot;</div><div class="line">          android:showAsAction=&quot;ifRoom&quot;/&gt;</div><div class="line">    &lt;item android:id=&quot;@+id/help&quot;</div><div class="line">          android:icon=&quot;@drawable/ic_help&quot;</div><div class="line">          android:title=&quot;@string/help&quot; /&gt;</div><div class="line">&lt;/menu&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>android:icon<br>引用一个要用作项目图标的 Drawable 类。</li>
+<li>android:title<br>引用一个要用作项目标题的字符串。</li>
+<li>android:showAsAction<br>指定此项应作为操作项目显示在操作栏中的时间和方式。</li>
+</ul>
+<p>toolbar右边的三个点是 操作栏右侧的操作溢出菜单，与手机物理菜单按键作用一样<br>需要支持快速访问的重要操作，可以在相应的 <item> 中添加 android:showAsAction=”ifRoom” ，从而将此项提升到操作栏中。</item></p>
+<p>android：showAsAction总共有五个属性。</p>
+<ul>
+<li>never：永远不会显示。只会在溢出列表中显示。</li>
+<li>ifRoom：会显示在Item中，但是如果已经有4个或者4个以上的Item时会隐藏在溢出列表中。</li>
+<li>always：无论是否溢出，总会显示。</li>
+<li>withText：Title会显示。</li>
+<li>collapseActionView：可拓展的Item。</li>
+</ul>
+<h3 id="小拓展："><a href="#小拓展：" class="headerlink" title="小拓展："></a>小拓展：</h3><p> Android 2.3.x 及更低版本的系统，则当用户首次打开选项菜单时，系统会调用 onCreateOptionsMenu() 来创建该菜单。如果您开发的应用是用于 Android 3.0 及更高版本的系统，则系统将在启动 Activity 时调用 onCreateOptionsMenu()，以便向操作栏显示项目。</p>
+<p>在 Activity 生命周期中发生的事件修改选项菜单，则可通过 onPrepareOptionsMenu() 方法执行此操作。<br>在 Android 2.3.x 及更低版本中，每当用户打开选项菜单时（按“菜单”按钮），系统均会调用 onPrepareOptionsMenu()。<br>在 Android 3.0 及更高版本中，当菜单项显示在操作栏中时，选项菜单被视为始终处于打开状态。发生事件时，如果您要执行菜单更新，则必须调用 invalidateOptionsMenu() 来请求系统调用 onPrepareOptionsMenu()。</p>
+<p>要想长按（或者选中复选框或视图内的类似 UI 组件）显示出来上下文操作模式，如网易新闻长按顶部出现的复制粘贴等。有的控件webview会默认实现。<br>为单个视图启用上下文操作模式<br>如果希望仅当用户选择特定视图时才调用上下文操作模式，则应：<br>实现 ActionMode.Callback 接口。在其回调方法中，您既可以为上下文操作栏指定操作，又可以响应操作项目的点击事件，还可以处理操作模式的其他生命周期事件。<br>当需要显示操作栏时（例如，用户长按视图），请调用 startActionMode()。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() &#123;</div><div class="line"></div><div class="line">    // Called when the action mode is created; startActionMode() was called</div><div class="line">    @Override</div><div class="line">    public boolean onCreateActionMode(ActionMode mode, Menu menu) &#123;</div><div class="line">        // Inflate a menu resource providing context menu items</div><div class="line">        MenuInflater inflater = mode.getMenuInflater();</div><div class="line">        inflater.inflate(R.menu.context_menu, menu);</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // Called each time the action mode is shown. Always called after onCreateActionMode, but</div><div class="line">    // may be called multiple times if the mode is invalidated.</div><div class="line">    @Override</div><div class="line">    public boolean onPrepareActionMode(ActionMode mode, Menu menu) &#123;</div><div class="line">        return false; // Return false if nothing is done</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // Called when the user selects a contextual menu item</div><div class="line">    @Override</div><div class="line">    public boolean onActionItemClicked(ActionMode mode, MenuItem item) &#123;</div><div class="line">        switch (item.getItemId()) &#123;</div><div class="line">            case R.id.menu_share:</div><div class="line">                shareCurrentItem();</div><div class="line">                mode.finish(); // Action picked, so close the CAB</div><div class="line">                return true;</div><div class="line">            default:</div><div class="line">                return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // Called when the user exits the action mode</div><div class="line">    @Override</div><div class="line">    public void onDestroyActionMode(ActionMode mode) &#123;</div><div class="line">        mActionMode = null;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><a href="http://developer.android.com/intl/zh-cn/guide/topics/ui/menus.html#context-menu" target="_blank" rel="external">http://developer.android.com/intl/zh-cn/guide/topics/ui/menus.html#context-menu</a><br><a href="http://stackoverflow.com/questions/26443403/toolbar-and-contextual-actionbar-with-appcompat-v7/26450875#26450875" target="_blank" rel="external">http://stackoverflow.com/questions/26443403/toolbar-and-contextual-actionbar-with-appcompat-v7/26450875#26450875</a><br><a href="http://blog.csdn.net/eclipsexys/article/details/8688538" target="_blank" rel="external">http://blog.csdn.net/eclipsexys/article/details/8688538</a><br><a href="http://blog.csdn.net/jflex/article/details/7854573" target="_blank" rel="external">http://blog.csdn.net/jflex/article/details/7854573</a></p>
+
+					</div>
+
+			  <!-- about -->
+			  
+		</div>
+
+		<!-- pagination -->
+	  
+
+		<div class="comment-section">
+  
+  
+   <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="_posts/Android-Theme主题相关.md" data-title="Android Theme主题菜单相关" data-url="http://jijiaxin89.com/2015/11/21/Android-Theme主题相关/"></div>
+    <!-- 多说评论框 end -->
+   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'jijiaxin'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  
+
+
+</div>
+	</div>
+
+	
+
+</div>
+
+
+		<footer>
+			
+
+<p>
+  由 <a href="https://hexo.io">hexo</a> 强力驱动 | 搭载 <a href="https://github.com/wayou/hexo-theme-material">material</a> 主题
+</p>
+<p>
+  &copy; 2017 <a href="http://jijiaxin89.com"> 季訫 </a>
+</p>
+<a id="gotop" href="#" title="back to top"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+
+		</footer>
+	  </div>
+
+		<!-- <script src="/libs/bs/js/bootstrap.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script>(typeof $().modal == 'function')|| document.write('<script src="/libs/bs/js/bootstrap.min.js" type="text/javascript"><\/script>')</script>
+
+		<!-- material design -->
+		<!-- <script src="/libs/bs-material/js/ripples.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/ripples.min.js"></script>
+		<!-- <script src="/libs/bs-material/js/material.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/material.min.js"></script>
+		<!-- toc -->
+		<!-- <script src="/libs/tocify/jquery-ui.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/libs/tocify/jquery.tocify.custom.js"></script>
+
+		<script src="/js/main.js"></script>
+
+	</body>
+</html>

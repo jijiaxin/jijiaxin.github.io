@@ -1,0 +1,222 @@
+	<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>反编译备忘 | 微凉一季</title>
+  <meta name="author" content="季訫">
+  
+  <meta name="description" content="往事如烟，随风而逝">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="反编译备忘"/>
+  <meta property="og:site_name" content="微凉一季"/>
+
+  
+  
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#009688">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#009688">
+		<!-- favicon end -->
+    <!-- <link href="/favicon.ico" rel="icon"> -->
+  
+
+  <!-- toc -->
+  <link rel="stylesheet" href="/libs/tocify/jquery.tocify.css" media="screen" type="text/css">
+
+  <!-- <link rel="stylesheet" href="/libs/bs/css/bootstrap.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- material design -->
+	<!-- <link rel="stylesheet" href="/libs/bs-material/css/ripples.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/ripples.min.css" media="screen" type="text/css">
+  <!-- <link rel="stylesheet" href="/libs/bs-material/css/material.min.css" media="screen" type="text/css"> -->
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/material.min.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/highlight.light.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+  
+  <!-- 百度统计 -->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?965a6e7fe7dbf925b4191360c79b5e64";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+  
+
+  
+
+  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/libs/jquery-2.0.3.min.js" type="text/javascript"><\/script>')</script>
+
+</head>
+
+ 	<body>
+	  <nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">菜单</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">微凉一季</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="/" title="">
+                    <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives" title="">
+                    <i class="fa fa-list"></i>存档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/about" title="">
+                    <i class="fa fa-info-circle"></i>关于
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/atom.xml" title="这是一个订阅源">
+                    <i class="fa fa-rss"></i>RSS
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	  <div class="container" >
+	    <div class="row">
+	
+	<div class="col-md-9 center-content">
+	
+
+		<div class="content">
+			<!-- index -->
+		   
+
+			  		<h2>反编译备忘</h2>
+					
+					<div>
+						<span class="post-time">2015-11-22 14:26:59</span>
+					</div>	
+					
+
+					<div class="article-content">
+						<p>反编译apk不是什么新技术，也没什么难点，但是每次反编译apk总是记不住命令，总得搜一下照着步骤来。<br>反编译之前在<a href="http://jijiaxin89.com/2015/09/11/%E6%8A%80%E6%9C%AF%E9%9A%8F%E7%AC%94-%E4%BA%8C/">技术随笔（二）</a>记录过了。但是并不好找。所以单拎出来，便于使用时查找。</p>
+<h5 id="反编译资源文件"><a href="#反编译资源文件" class="headerlink" title="反编译资源文件"></a>反编译资源文件</h5><p>将需要反编译的apk拷贝到文件夹<code>D:\反编译\newapktool</code>下，cmd进入到这个目录，执行<code>apktool.bat d ApkName.apk</code>即可<br>反编译有时候特定版本的apktool 不需要指定目标文件夹。指定了反而容易出现找不到的问题。</p>
+<a id="more"></a>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//指定文件夹但是没有</span></div><div class="line"><span class="string">D:</span>\反编译\newapktool&gt;apktool.bat d Pocket.apk pocket</div><div class="line">Input file (pocket) was not found or was not readable.</div><div class="line"></div><div class="line"><span class="comment">//没指定文件夹但是创建有同名文件夹时</span></div><div class="line"><span class="string">D:</span>\反编译\newapktool&gt;apktool.bat d Pocket.apk</div><div class="line">Destination directory (<span class="string">D:</span>\反编译\newapktool\Pocket) already exists. Use -f <span class="keyword">switch</span> <span class="keyword">if</span> you want to overwrite it.</div><div class="line"></div><div class="line"><span class="comment">//所以还是这样吧，删掉同名文件夹，不用指定，它会自动创建。。用的newapktool</span></div><div class="line"><span class="string">D:</span>\反编译\newapktool&gt;apktool.bat d Pocket.apk</div><div class="line"><span class="string">I:</span> Using Apktool <span class="number">2.0</span><span class="number">.0</span>-RC2 on Pocket.apk</div><div class="line"><span class="string">I:</span> Loading resource table...</div><div class="line"><span class="string">I:</span> Loading resource table...</div><div class="line"><span class="string">I:</span> Decoding AndroidManifest.xml with resources...</div><div class="line"><span class="string">I:</span> Loading resource table from <span class="string">file:</span> <span class="string">C:</span>\Users\jjx\apktool\framework\<span class="number">1.</span>apk</div><div class="line"><span class="string">I:</span> Regular manifest <span class="keyword">package</span>...</div><div class="line"><span class="string">I:</span> Decoding file-resources...</div><div class="line"><span class="string">I:</span> Decoding values *<span class="comment">/* XMLs...</span></div><div class="line">I: Baksmaling classes.dex...</div><div class="line">I: Copying assets and libs...</div><div class="line">I: Copying unknown files...</div><div class="line">I: Copying original files...</div><div class="line"></div><div class="line">D:\反编译\newapktool&gt;</div></pre></td></tr></table></figure>
+<h5 id="反编译源代码"><a href="#反编译源代码" class="headerlink" title="反编译源代码"></a>反编译源代码</h5><p>NewApktool用来反编译出来资源文件<br>而反编译出来源码，需要这样做：</p>
+<ol>
+<li>首先将apk文件后缀改为zip并解压，得到其中的classes.dex，它就是java文件编译再通过dx工具打包而成的，将classes.dex复制到dex2jar.bat所在目录<code>D:\反编译\dex2jar-0.0.9.15</code>文件夹。</li>
+<li><p>在命令行下定位到dex2jar.bat所在目录，运行<br><code>dex2jar.bat    classes.dex</code><br>如果提示命令废弃了，可根据提示操作，如下：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="string">D:</span>\反编译\dex2jar<span class="number">-0.0</span><span class="number">.9</span><span class="number">.15</span>&gt;dex2jar.bat classes.dex</div><div class="line"><span class="keyword">this</span> cmd is deprecated, use the d2j-dex2jar <span class="keyword">if</span> possible</div><div class="line">dex2jar <span class="string">version:</span> translator<span class="number">-0.0</span><span class="number">.9</span><span class="number">.15</span></div><div class="line">dex2jar classes.dex -&gt; classes_dex2jar.jar</div><div class="line">Done.</div><div class="line"><span class="symbol"></span></div><div class="line">D:\反编译\dex2jar<span class="number">-0.0</span><span class="number">.9</span><span class="number">.15</span>&gt;d2j-dex2jar.bat classes.dex</div><div class="line">dex2jar classes.dex -&gt; classes-dex2jar.jar</div><div class="line"><span class="symbol"></span></div><div class="line">D:\反编译\dex2jar<span class="number">-0.0</span><span class="number">.9</span><span class="number">.15</span>&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>D:\反编译\dex2jar-0.0.9.15</code>中生成 <code>classes_dex2jar.jar</code></p>
+</li>
+<li>用<code>D:\反编译\jd-gui.exe</code> 打开 <code>classes_dex2jar.jar</code>即可看到源码。</li>
+</ol>
+
+					</div>
+
+			  <!-- about -->
+			  
+		</div>
+
+		<!-- pagination -->
+	  
+
+		<div class="comment-section">
+  
+  
+   <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="_posts/反编译备忘.md" data-title="反编译备忘" data-url="http://jijiaxin89.com/2015/11/22/反编译备忘/"></div>
+    <!-- 多说评论框 end -->
+   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'jijiaxin'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  
+
+
+</div>
+	</div>
+
+	
+
+</div>
+
+
+		<footer>
+			
+
+<p>
+  由 <a href="https://hexo.io">hexo</a> 强力驱动 | 搭载 <a href="https://github.com/wayou/hexo-theme-material">material</a> 主题
+</p>
+<p>
+  &copy; 2017 <a href="http://jijiaxin89.com"> 季訫 </a>
+</p>
+<a id="gotop" href="#" title="back to top"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+
+		</footer>
+	  </div>
+
+		<!-- <script src="/libs/bs/js/bootstrap.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script>(typeof $().modal == 'function')|| document.write('<script src="/libs/bs/js/bootstrap.min.js" type="text/javascript"><\/script>')</script>
+
+		<!-- material design -->
+		<!-- <script src="/libs/bs-material/js/ripples.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/ripples.min.js"></script>
+		<!-- <script src="/libs/bs-material/js/material.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/material.min.js"></script>
+		<!-- toc -->
+		<!-- <script src="/libs/tocify/jquery-ui.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/libs/tocify/jquery.tocify.custom.js"></script>
+
+		<script src="/js/main.js"></script>
+
+	</body>
+</html>

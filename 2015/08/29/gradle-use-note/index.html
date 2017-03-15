@@ -1,0 +1,276 @@
+	<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Gradle 用法总结 | 微凉一季</title>
+  <meta name="author" content="季訫">
+  
+  <meta name="description" content="往事如烟，随风而逝">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Gradle 用法总结"/>
+  <meta property="og:site_name" content="微凉一季"/>
+
+  
+  
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#009688">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#009688">
+		<!-- favicon end -->
+    <!-- <link href="/favicon.ico" rel="icon"> -->
+  
+
+  <!-- toc -->
+  <link rel="stylesheet" href="/libs/tocify/jquery.tocify.css" media="screen" type="text/css">
+
+  <!-- <link rel="stylesheet" href="/libs/bs/css/bootstrap.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- material design -->
+	<!-- <link rel="stylesheet" href="/libs/bs-material/css/ripples.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/ripples.min.css" media="screen" type="text/css">
+  <!-- <link rel="stylesheet" href="/libs/bs-material/css/material.min.css" media="screen" type="text/css"> -->
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/material.min.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/highlight.light.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+  
+  <!-- 百度统计 -->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?965a6e7fe7dbf925b4191360c79b5e64";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+  
+
+  
+
+  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/libs/jquery-2.0.3.min.js" type="text/javascript"><\/script>')</script>
+
+</head>
+
+ 	<body>
+	  <nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">菜单</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">微凉一季</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="/" title="">
+                    <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives" title="">
+                    <i class="fa fa-list"></i>存档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/about" title="">
+                    <i class="fa fa-info-circle"></i>关于
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/atom.xml" title="这是一个订阅源">
+                    <i class="fa fa-rss"></i>RSS
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	  <div class="container" >
+	    <div class="row">
+	
+	<div class="col-md-9 center-content">
+	
+
+		<div class="content">
+			<!-- index -->
+		   
+
+			  		<h2>Gradle 用法总结</h2>
+					
+					<div>
+						<span class="post-time">2015-08-29 10:10:58</span>
+					</div>	
+					
+
+					<div class="article-content">
+						<p>用过android studio的对gradle应该都不陌生了，gradle文件的基本配置大同小异，略做了解使用应该是没什么问题了。但是深入细致的了解一下对于理解项目还是很有帮助的，尤其是遇到一些配置复杂的github项目，不了解gradle可能会遇到跑不起来又束手无策的情形。下面对gradle相关知识、用法做一下总结。</p>
+<h3 id="DSL-（domain-specific-language）"><a href="#DSL-（domain-specific-language）" class="headerlink" title="DSL （domain specific language）"></a>DSL （domain specific language）</h3><p>即所谓领域专用语言，其基本思想是“求专不求全”，不像通用目的语言那样目标范围涵盖一切软件问题，而是专门针对某一特定问题的计算机语言。<br>-DSL之于程序员正如伽南地之于以色列人，是最初也是最终的梦想。几乎自计算机发明伊始，人们就开始谈论DSL使用DSL了。<br>-前几年迅速走红的Ruby on Rails就被誉为“Web开发领域专用语言”<br><a id="more"></a></p>
+<h5 id="DSL-约等于-整洁的代码"><a href="#DSL-约等于-整洁的代码" class="headerlink" title="DSL 约等于 整洁的代码"></a>DSL 约等于 整洁的代码</h5><p>从概念上说，程序的编写过程就是把业务领域中的问题通过代码或者程序模型表达出来：<br>计算机的程序模型较为单一（归根结底都是运算和存储）<br>在面向对象技术成为主流的今天，通常情况下，计算机程序不太可能做到与业务领域中的概念一致，或者具有某些直觉的对应。因此，软件的修改和可维护性并没有想象中的容易。我们必须不断地将业务领域中的概念转换成相应的代码模型，然后再进行修改。这种间接性直接造成了软件的复杂度。<br>而DSL的主要目的就是要消除这样的复杂度（或者说，以构造DSL的复杂度代替这种复杂度），DSL就要是要以贴近业务领域的方式来构造软件。因此，DSL的简洁性往往是一种思维上的简洁性，使我们不用费太多的气力就能看懂代码所对应的业务含义。</p>
+<h5 id="DSL多以文本代码的形式出现"><a href="#DSL多以文本代码的形式出现" class="headerlink" title="DSL多以文本代码的形式出现"></a>DSL多以文本代码的形式出现</h5><p>多年来软件工程实践表明文本代码是最有效率的编辑形式。但是一些特殊领域，文本代码并不是最佳的表现形式，为了更好的贴近业务领域中的概念，我们可能会选择使用一些图形化的DSL。如：[DSM（Domain Specific Modeling）工具GEMS（Generic Eclipse Modeling System）中就大量地使用了不同的图形化的DSL来表述系统的各个不同侧面。</p>
+<p>Gradle向我们提供了一整套DSL，所以在很多时候我们写的代码似乎已经脱离了groovy，但是在底层依然是执行的groovy<br>为了从命令行运行gradle测试样例，首先</p>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><ol>
+<li>创建变量名：GRADLE_HOME ，变量值：<br>C:\Users\jjx.gradle\wrapper\dists\gradle-2.5-all\d3xh0kipe7wr2bvnx5sk0hao8\gradle-2.5</li>
+<li>加入path<br>;%GRADLE_HOME%\bin;</li>
+<li>检查,如下就ok。<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="string">C:</span>\Users\jjx&gt;gradle -v</div><div class="line"></div><div class="line">------------------------------------------------------------</div><div class="line">Gradle <span class="number">2.5</span></div><div class="line">------------------------------------------------------------</div><div class="line"></div><div class="line">Build <span class="string">time:</span>   <span class="number">2015</span><span class="number">-07</span><span class="number">-08</span> <span class="number">07</span>:<span class="number">38</span>:<span class="number">37</span> UTC</div><div class="line">Build <span class="string">number:</span> none</div><div class="line"><span class="string">Revision:</span>     <span class="number">093765</span>bccd3ee722ed5310583e5ed140688a8c2b</div><div class="line"><span class="symbol"></span></div><div class="line">Groovy:       <span class="number">2.3</span><span class="number">.10</span></div><div class="line"><span class="string">Ant:</span>          Apache Ant(TM) version <span class="number">1.9</span><span class="number">.3</span> compiled on December <span class="number">23</span> <span class="number">2013</span></div><div class="line"><span class="string">JVM:</span>          <span class="number">1.7</span><span class="number">.0</span>_75 (Oracle Corporation <span class="number">24.75</span>-b04)</div><div class="line"><span class="string">OS:</span>           Windows <span class="number">7</span> <span class="number">6.1</span> amd64</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="初尝禁果"><a href="#初尝禁果" class="headerlink" title="初尝禁果"></a>初尝禁果</h3><p>在d：盘建个文件夹Test，文件夹下建个文件build.gradle<br>打开文件，写个简单的代码<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">task helloWorld &lt;&lt; &#123;</div><div class="line">    println <span class="string">"Hello World"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>打开cmd， d： 执行gradle helloWorld<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">C:</span>\Users\jjx&gt;<span class="string">d:</span></div><div class="line"><span class="symbol"></span></div><div class="line">D:\&gt;cd Test</div><div class="line"><span class="symbol"></span></div><div class="line">D:\Test&gt;gradle helloWorld</div><div class="line">:helloWorld</div><div class="line">Hello World</div><div class="line"></div><div class="line">BUILD SUCCESSFUL</div><div class="line"></div><div class="line">Total <span class="string">time:</span> <span class="number">3.714</span> secs</div><div class="line"><span class="string">D:</span>\Test&gt;</div></pre></td></tr></table></figure></p>
+<p>同时，这时候发现已经自动在Test目录下创建了.gradle文件。<br>上面helloWorld后的“&lt;&lt;”表示<strong>追加</strong>的意思，即向helloWorld中加入执行过程<br>使用doLast可以达到同样效果<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">task helloWorldTwo &#123;</div><div class="line">   doLast &#123;</div><div class="line">      println <span class="string">'helloWorldTwo'</span>&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果需要向Task的最前面加入执行过程，我们可以使用doFirst：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">task helloWorldThree &#123;</div><div class="line">   doFirst &#123;</div><div class="line">      println <span class="string">'helloWorldThree'</span>&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>耶，懂了！</p>
+<h3 id="关于-task"><a href="#关于-task" class="headerlink" title="关于 task"></a>关于 task</h3><p>Gradle将当前目录下的build.gradle文件作为项目的构建文件。在上面的例子中，我们创建了一个名为helloWorld的Task，在执行gradle命令时，我们指定执行这个helloWorld Task。这里的helloWorld是一个DefaultTask类型的对象，这也是定义一个Task时的默认类型，当然我们也可以显式地声明Task的类型，甚至可以自定义一个Task类型<br>下面再看一个小case：<br>我们在Test文件夹下建一个src目录，建一个dst目录，src目录下建立一个文件，命名为here.txt<br>然后在build.gradle中append一个task：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">task helloWorld &lt;&lt; &#123;</div><div class="line">    println <span class="string">"Hello World"</span></div><div class="line">&#125;</div><div class="line">task copyFile(<span class="string">type:</span> Copy)&#123;</div><div class="line">    from <span class="string">"src"</span></div><div class="line">    into <span class="string">"dst"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>代码中（type：Copy）就是“显式地声明Task的类型”，helloworld没有就是默认得DefaultTask类型咯。</p>
+<p>然后cmd中执行命令<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="string">D:</span>\Test&gt;gradle copyFile</div><div class="line">:copyFile</div><div class="line"></div><div class="line">BUILD SUCCESSFUL</div><div class="line"></div><div class="line">Total <span class="string">time:</span> <span class="number">2.645</span> secs</div><div class="line"><span class="string">D:</span>\Test&gt;gradle copyFile</div><div class="line">:copyFile</div><div class="line"></div><div class="line">BUILD SUCCESSFUL</div><div class="line"></div><div class="line">Total <span class="string">time:</span> <span class="number">3.361</span> secs</div><div class="line"><span class="string">D:</span>\Test&gt;</div></pre></td></tr></table></figure></p>
+<p>好了！ here.txt也跑到dst中去啦！简单吧！</p>
+<p>加一把火，我们来看一下当前目录下（即Test目录文件，这里也可以将这个目录理解为一个project，不过还没写有生产力的代码，哈哈哈）定义的task<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="string">D:</span>\Test&gt;gradle tasks</div><div class="line">:tasks</div><div class="line"></div><div class="line">------------------------------------------------------------</div><div class="line">All tasks runnable from root project</div><div class="line">------------------------------------------------------------</div><div class="line"></div><div class="line">Build Setup tasks</div><div class="line">-----------------</div><div class="line">init - Initializes a <span class="keyword">new</span> Gradle build. [incubating]</div><div class="line">wrapper - Generates Gradle wrapper files. [incubating]</div><div class="line"></div><div class="line">Help tasks</div><div class="line">----------</div><div class="line">components - Displays the components produced by root project <span class="string">'Test'</span>. [incubating]</div><div class="line">dependencies - Displays all dependencies declared <span class="keyword">in</span> root project <span class="string">'Test'</span>.</div><div class="line">dependencyInsight - Displays the insight into a specific dependency <span class="keyword">in</span> root project <span class="string">'Test'</span>.</div><div class="line">help - Displays a help message.</div><div class="line">model - Displays the configuration model of root project <span class="string">'Test'</span>. [incubating]</div><div class="line">projects - Displays the sub-projects of root project <span class="string">'Test'</span>.</div><div class="line">properties - Displays the properties of root project <span class="string">'Test'</span>.</div><div class="line">tasks - Displays the tasks runnable from root project <span class="string">'Test'</span>.</div><div class="line"></div><div class="line">Other tasks</div><div class="line">-----------</div><div class="line">copyFile</div><div class="line">helloWorld</div><div class="line"></div><div class="line">To see all tasks and more detail, run gradle tasks --all</div><div class="line"></div><div class="line">To see more detail about a task, run gradle help --task &lt;task&gt;</div><div class="line"></div><div class="line">BUILD SUCCESSFUL</div><div class="line"></div><div class="line">Total <span class="string">time:</span> <span class="number">2.895</span> secs</div><div class="line"><span class="string">D:</span>\Test&gt;</div></pre></td></tr></table></figure></p>
+<p>是不是很清晰呢，展示了各种task类型，task的作用，以及另外两个task相关的命令，相信聪明的你也一看就懂。</p>
+<p>Gradle本身的领域对象主要有Project和Task。<br>Project为Task提供了执行上下文，所有的Plugin要么向Project中添加用于配置的Property，要么向Project中添加不同的Task。<br>一个Task表示一个逻辑上较为独立的执行过程，比如编译Java源代码，拷贝文件，打包Jar文件，甚至可以是执行一个系统命令或者调用Ant。另外，一个Task可以读取和设置Project的Property以完成特定的操作。是不是很屌的样子。<br>task关键字其实是一个groovy中方法的调用，该方法属于Project，而大括号之间的内容则表示传递给task()方法的一个闭包。</p>
+<h5 id="task间的依赖"><a href="#task间的依赖" class="headerlink" title="task间的依赖"></a>task间的依赖</h5><p>task之间是可以存在依赖关系，比如TaskA依赖TaskB，那么在执行TaskA时，Gradle会先执行TaskB，再执行TaskA。我们可以在定义一个Task的同时声明它的依赖关系：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">task helloWorldFour(<span class="string">dependsOn:</span>helloWorldThree) &lt;&lt; &#123;</div><div class="line">    println <span class="string">'hellohelloWorldFour'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">task helloWorldFour &lt;&lt; &#123;</div><div class="line">    println <span class="string">'hellohelloWorldFour'</span></div><div class="line">&#125;</div><div class="line">helloWorldFour.dependsOn helloWorldThree</div></pre></td></tr></table></figure></p>
+<h5 id="可配置的task"><a href="#可配置的task" class="headerlink" title="可配置的task"></a>可配置的task</h5><p>一个Task除了执行操作之外，还可以包含多个Property，其中有Gradle为每个Task默认定义了一些Property，比如description，logger等。<br>另外，每一个特定的Task类型还可以含有特定的Property，比如Copy的from和to等。<br>当然，我们还可以动态地向Task中加入额外的Property。在执行一个Task之前，我们通常都需要先设定Property的值。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">task helloWorld &lt;&lt; &#123;</div><div class="line">   description = <span class="string">"this is helloWorld"</span> </div><div class="line">   println description</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>或者通过调用Task的configure()方法完成Property的设置：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">task helloWorld &lt;&lt; &#123;</div><div class="line">   println description</div><div class="line">&#125;</div><div class="line">helloWorld.configure &#123;</div><div class="line">   description = <span class="string">"this is helloWorld"</span> </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="花式task"><a href="#花式task" class="headerlink" title="花式task"></a>花式task</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">task showDescription1 &lt;&lt; &#123;</div><div class="line">   description = <span class="string">'this is task showDescription'</span></div><div class="line">   println description</div><div class="line">&#125;</div><div class="line"></div><div class="line">task showDescription2 &lt;&lt; &#123;</div><div class="line">   println description</div><div class="line">&#125;</div><div class="line">showDescription2.description = <span class="string">'this is task showDescription'</span></div><div class="line"></div><div class="line">task showDescription3 &lt;&lt; &#123;</div><div class="line">   println description</div><div class="line">&#125;</div><div class="line">showDescription3 &#123;</div><div class="line">   description = <span class="string">'this is task showDescription'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对于每一个Task，Gradle都会在Project中创建一个同名的Property，所以我们可以将该Task当作Property来访问，showDescription2便是这种情况。另外，Gradle还会创建一个同名的方法，该方法接受一个闭包，我们可以使用该方法来配置Task，showDescription3便是这种情况。<br>耶！简单吧</p>
+<h3 id="关于-Groovy"><a href="#关于-Groovy" class="headerlink" title="关于 Groovy"></a>关于 Groovy</h3><p>Gradle是一种声明式的构建工具。<br>在执行时，Gradle并不会一开始便顺序执行build.gradle文件中的内容，而是分为两个阶段，第一个阶段是配置阶段，然后才是实际的执行阶段。<br>配置阶段，Gradle将读取所有build.gradle文件的所有内容来配置Project和Task等，比如设置Project和Task的Property，处理Task之间的依赖关系等。<br>Gradle的DSL只是Groovy语言的内部DSL，也必须遵循Groovy的语法规则。<br>Groovy语言中的两个概念，一个是Groovy中的Bean概念，一个是Groovy闭包的delegate机制。</p>
+<h5 id="bean"><a href="#bean" class="headerlink" title="bean"></a>bean</h5><p>Groovy中的Bean和Java中的Bean有一个很大的不同，即Groovy动态的为每一个字段都会自动生成getter和setter，并且我们可以通过像访问字段本身一样调用getter和setter<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">GroovyBeanExample</span> &#123;</span></div><div class="line">   <span class="keyword">private</span> String name</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">def</span> bean = <span class="keyword">new</span> GroovyBeanExample()</div><div class="line">bean.name = <span class="string">'this is name'</span> <span class="comment">//实际调用的是"bean.setName('this is name')"</span></div><div class="line">println bean.name  <span class="comment">//实际调用的是</span></div><div class="line"><span class="string">"println bean.getName()"</span></div></pre></td></tr></table></figure></p>
+<p>采用像直接访问的方式的目的是为了增加代码的可读性，使它更加自然，而在内部，Groovy依然<br>是在调用setter和getter方法。</p>
+<h5 id="闭包的delegate机制"><a href="#闭包的delegate机制" class="headerlink" title="闭包的delegate机制"></a>闭包的delegate机制</h5><p>简单来说，delegate机制可以使我们将一个闭包中的执行代码的作用对象设置成任意其他对象。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> &#123;</span></div><div class="line">   <span class="keyword">private</span> String name</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> &#123;</span></div><div class="line">   Child child = <span class="keyword">new</span> Child();</div><div class="line">   <span class="keyword">void</span> configChild(Closure c) &#123;</div><div class="line">      c.delegate = child</div><div class="line">      c.setResolveStrategy Closure.DELEGATE_FIRST</div><div class="line">      c()</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">def</span> parent = <span class="keyword">new</span> Parent()</div><div class="line">parent.configChild &#123;</div><div class="line">name = <span class="string">"child name"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">println parent.child.name</div></pre></td></tr></table></figure></p>
+<p>在上面的例子中，当调用configChild()方法时，并没有指出name属性是属于Child的，但是它的确是在设置Child的name属性。<br>事实上光从该方法的调用中，我们根本不知道name是属于哪个对象的，你可能会认为它是属于Parent的。<br>真实情况是，在默认情况下，name的确被认为是属于Parent的，但是我们在configChild()方法的定义中做了手脚，使其不再访问Parent中的name（Parent也没有name属性），而是Child的name。<br>在configChild()方法中，我们将该方法接受的闭包的delegate设置成了child，然后将该闭包的ResolveStrategy设置成了DELEGATE_FIRST。这样，在调用configChild()时，所跟闭包中代码被代理到了child上，即这些代码实际上是在child上执行的。<br>此外，闭包的ResolveStrategy在默认情况下是OWNER_FIRST，即它会先查找闭包的owner（这里即parent），如果owner存在，则在owner上执行闭包中的代码。这里我们将其设置成了DELEGATE_FIRST，即该闭包会首先查找delegate（本例中即child），如果找到，该闭包便会在delegate上执行。</p>
+<h5 id="联想gradle中声明的方法"><a href="#联想gradle中声明的方法" class="headerlink" title="联想gradle中声明的方法"></a>联想gradle中声明的方法</h5><p>在使用Gradle时，我们并没有像上面的parent.configChild()一样指明方法调用的对象，而是在build.gradle文件中直接调用task()，apply()和configuration()等方法。这是<br>因为在没有说明调用对象的情况下，Gradle会自动将调用对象设置成当前Project。<br>比如调用apply()方法和调用project.apply()方法的效果是一样的。查查Gradle的Project文档，你会发现这些方法都是Project类的方法。<br>对于configurations()方法，该方法实际上会将所跟闭包的delegate设置成ConfigurationContainer，然后在该ConfigurationContainer上执行闭包中的代码。再比如，dependencies()方法，该方法会将所跟闭包的delegate设置成DependencyHandler。</p>
+<h3 id="终于到了gradle"><a href="#终于到了gradle" class="headerlink" title="终于到了gradle"></a>终于到了gradle</h3><h4 id="自定义Property"><a href="#自定义Property" class="headerlink" title="自定义Property"></a>自定义Property</h4><p>Gradle还为我们提供了多种方法来自定义Project的Property。</p>
+<h5 id="在build-gradle文件中定义Property"><a href="#在build-gradle文件中定义Property" class="headerlink" title="在build.gradle文件中定义Property"></a>在build.gradle文件中定义Property</h5><p>添加一个名为property1的Property：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ext.property1 = <span class="string">"this is property1"</span></div></pre></td></tr></table></figure></p>
+<p>或者采用闭包的形式<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ext &#123;</div><div class="line">   property2 = <span class="string">"this is property2"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>定义了Property后，使用这些Property时我们则不需要ext，而是可以直接访问：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">task showProperties &lt;&lt; &#123;</div><div class="line">   println property1</div><div class="line">   println property2</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>还可以在执行命令行的时候加属性<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">task showCommandLieProperties &lt;&lt; &#123;</div><div class="line">   println property3</div><div class="line">&#125;</div><div class="line"><span class="comment">//以下是cmd中执行命令</span></div><div class="line">gradle -Property3=<span class="string">"this is property3"</span> showCommandLieProperties</div><div class="line"></div><div class="line"><span class="comment">//通过JVM系统参数定义Property,与java类似，但是前面要约定以“org.gradle.project”为前缀</span></div><div class="line">gradle -D org.gradle.project.property3=<span class="string">"this is another property3"</span> showCommandLieProperties</div></pre></td></tr></table></figure></p>
+<p>此外还可以通过环境变量来为Gradle设置Property，但是每一个Property都需要以“ORG_GRADLE<em>PROJECT</em>”为前缀：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ORG_GRADLE_PROJECT_property3=<span class="string">"this is yet another property3"</span></div></pre></td></tr></table></figure></p>
+<h4 id="Gradle-的-Plugin"><a href="#Gradle-的-Plugin" class="headerlink" title="Gradle 的 Plugin"></a>Gradle 的 Plugin</h4><p> Gradle最常用的Plugin便是java Plugin了。和其他Plugin一样，java Plugin并没有什么特别的地方，只是向Project中引入了多个Task和Property。当然，java Plugin也有比较与众不同的地方，其中之一便是它在项目中引入了构建生命周期的概念，就像Maven一样。但是，和Maven不同的是，Gradle的项目构建生命周期并不是Gradle的内建机制，而是由Plugin自己引入的。</p>
+<h4 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h4><p>一个项目总会依赖于第三方，要么是一个第三方类库，要么是自己开发的另一个module<br>配置Gradle的Repository，就是告诉Gradle在什么地方去获取这些依赖<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">   mavenCentral()</div><div class="line">   jCentral()</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>jCentral()是大于mavenCentral()的一个仓库，现在是studio默认的仓库</p>
+<p>Gradle对依赖进行分组，允许编译时使用一组依赖，运行时使用另一组依赖。每一组依赖称为一个Configuration，在声明依赖时，我们实际上是在设置不同的Configuration。</p>
+<p>要定义一个Configuration，我们可以通过以下方式完成：studio一般不需要设置，应该是有默认的，即为classpath<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">configurations &#123;</div><div class="line">   myDependency</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>通过dependencies()方法向myDependency中加入实际的依赖项：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line"><span class="comment">//下面的myDependency是关键</span></div><div class="line">   myDependency <span class="string">'org.apache.commons:commons-lang3:3.0'</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//类似studio中的classpath</span></div><div class="line">dependencies &#123;</div><div class="line">   classpath <span class="string">'com.android.tools.build:gradle:1.3.0'</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//还有 这里的compile，testCompile</span></div><div class="line">dependencies &#123;</div><div class="line">    compile project(<span class="string">':library'</span>)</div><div class="line">    compile <span class="string">'com.android.support:recyclerview-v7:22.2.1'</span></div><div class="line">    compile <span class="string">'com.android.support:design:22.2.1'</span></div><div class="line">    compile <span class="string">'com.evernote:android-intent:1.0.1'</span></div><div class="line">    testCompile <span class="string">'junit:junit:4.8.2'</span> </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>myDependency，classpath，compile，testCompile都是Configuration（一组依赖）。<br>除了myDependency都不使我们定义的，为啥呢，android Plugin会自动定义compile和testCompile分别用于编译Java源文件和编译Java测试源文件。classpath应该是用于所有，我类推的。<br>Gradle还允许我们声明对其他Project或者文件系统的依赖。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line"><span class="comment">//library是另一个module的名字</span></div><div class="line">   compile project(<span class="string">':library'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对于本地文件系统中的Jar文件，我们可以通过以下方式声明对其的依赖：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">   <span class="comment">//java</span></div><div class="line">   compile files(<span class="string">'spring-core.jar'</span>, <span class="string">'spring-aap.jar'</span>)</div><div class="line">   compile fileTree(<span class="string">dir:</span> <span class="string">'deps'</span>, <span class="string">include:</span> <span class="string">'*.jar'</span>)</div><div class="line">   <span class="comment">//studio中一般这么写</span></div><div class="line">   compile fileTree(<span class="string">dir:</span> <span class="string">'libs'</span>, <span class="string">include:</span> [<span class="string">'*.jar'</span>])</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="构建多module的project"><a href="#构建多module的project" class="headerlink" title="构建多module的project"></a>构建多module的project</h4><p>Gradle为每个build.gradle都会创建一个相应的module领域对象，在编写Gradle脚本时，我们实际上是在操作诸如module这样的Gradle领域对象。在多module的项目中，我们会操作多个module领域对象。Gradle提供了强大的多module构建支持<br>要创建多module的Gradle项目，我们首先需要在根（Root）Project中加入名为settings.gradle的配置文件，该文件应该包含各个子module（其实就是一个子project）的名称。如setting.gradle中：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">include <span class="string">'library'</span>, <span class="string">'demo'</span></div></pre></td></tr></table></figure></p>
+<p>类似module（子project）的build.gradle，（Root）Project也有自己的build.gradle，在里面通常设置：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">allprojects &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//通常studio项目没有，咱自己加的</span></div><div class="line">   apply <span class="string">plugin:</span> <span class="string">'idea'</span></div><div class="line">   task allTask &lt;&lt; &#123;</div><div class="line">      println project.name</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>allprojects()方法将repositories配置一次性地应用于所有的module（子Project）和root-project本身，当然也包括定义的Task，这个task配置到所有module里面了和root-project。</p>
+<p>subprojects()方法用于配置所有的子Project（不包含根Project）</p>
+<h4 id="步入巅峰"><a href="#步入巅峰" class="headerlink" title="步入巅峰"></a>步入巅峰</h4><p>Gradle本身只是一个架子，真正起作用的是Task和Plugin。</p>
+<h5 id="自定义Task"><a href="#自定义Task" class="headerlink" title="自定义Task"></a>自定义Task</h5><p>Gradle中的Task要么是由不同的Plugin引入的，要么是我们自己在build.gradle文件中直接创建的。</p>
+<ul>
+<li><p>在build.gradle文件中直接定义<br>需要定义的Task类型不多时<br>Gradle其实就是groovy代码，所以在build.gradle文件中，我们便可以定义Task类。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorldTask</span> <span class="keyword">extends</span> <span class="title">DefaultTask</span> &#123;</span></div><div class="line">    <span class="comment">//@Optional，表示在配置该Task时，message是可选的。</span></div><div class="line">    <span class="meta">@Optional</span></div><div class="line">    String message = <span class="string">'I am jjx'</span></div><div class="line">    <span class="comment">//@TaskAction表示该Task要执行的动作,即在调用该Task时，hello()方法将被执行</span></div><div class="line">    <span class="meta">@TaskAction</span></div><div class="line">    <span class="keyword">def</span> hello()&#123;</div><div class="line">        println <span class="string">"hello world $message"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//hello使用了默认的message值</span></div><div class="line">task hello(<span class="string">type:</span>HelloWorldTask)</div><div class="line"></div><div class="line"><span class="comment">//重新设置了message的值</span></div><div class="line">task helloOne(<span class="string">type:</span>HelloWorldTask)&#123;</div><div class="line">   message =<span class="string">"I am a android developer"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在当前工程中定义Task类型<br>只能应用在当前module中，没什么卵用，下面是全局可用的</p>
+</li>
+<li>在单独的项目中定义Task类型<br>项目中存在大量的自定义Task类型时,在另外的一个gradle文件中定义这些Task，然后再apply到build.gradle文件中。<br>可以参考印象笔记的demo：<a href="https://github.com/evernote/evernote-sdk-android" target="_blank" rel="external">https://github.com/evernote/evernote-sdk-android</a><br>中的：<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这是插件</span></div><div class="line">apply <span class="string">plugin:</span> <span class="string">'com.android.application'</span></div><div class="line"><span class="comment">//这里gradle-quality.gradle就是另外单独定义了task的gradle</span></div><div class="line">apply <span class="string">from:</span> <span class="string">'../build-config/gradle-quality.gradle'</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="自定义Plugin"><a href="#自定义Plugin" class="headerlink" title="自定义Plugin"></a>自定义Plugin</h5><p>与自定义task极其类似，可以类推理解，也是有3中方式定义，只是代码不一样：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">apply <span class="string">plugin:</span> DateAndTimePlugin</div><div class="line"></div><div class="line">dateAndTime &#123;</div><div class="line">    timeFormat = <span class="string">'HH:mm:ss.SSS'</span></div><div class="line">    dateFormat = <span class="string">'MM/dd/yyyy'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DateAndTimePlugin</span> <span class="keyword">implements</span> <span class="title">Plugin</span>&lt;<span class="title">Project</span>&gt; &#123;</span></div><div class="line">    <span class="comment">//该接口定义了一个apply()方法，在该方法中，我们可以操作Project，</span></div><div class="line">    <span class="comment">//比如向其中加入Task，定义额外的Property等。</span></div><div class="line">    <span class="keyword">void</span> apply(Project project) &#123;</div><div class="line">        project.extensions.create(<span class="string">"dateAndTime"</span>, DateAndTimePluginExtension)</div><div class="line"></div><div class="line">        project.task(<span class="string">'showTime'</span>) &lt;&lt; &#123;</div><div class="line">            println <span class="string">"Current time is "</span> + <span class="keyword">new</span> Date().format(project.dateAndTime.timeFormat)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        project.tasks.create(<span class="string">'showDate'</span>) &lt;&lt; &#123;</div><div class="line">            println <span class="string">"Current date is "</span> + <span class="keyword">new</span> Date().format(project.dateAndTime.dateFormat)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//每个Gradle的Project都维护了一个ExtenionContainer，</span></div><div class="line"><span class="comment">//我们可以通过project.extentions进行访问</span></div><div class="line"><span class="comment">//比如读取额外的Property和定义额外的Property等。</span></div><div class="line"><span class="comment">//向Project中定义了一个名为dateAndTime的extension</span></div><div class="line"><span class="comment">//并向其中加入了2个Property，分别为timeFormat和dateFormat</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DateAndTimePluginExtension</span> &#123;</span></div><div class="line">    String timeFormat = <span class="string">"MM/dd/yyyyHH:mm:ss.SSS"</span></div><div class="line">    String dateFormat = <span class="string">"yyyy-MM-dd"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>每一个自定义的Plugin都需要实现Plugin<t>接口，除了给Project编写Plugin之外，我们还可以为其他Gradle类编写Plugin。<br>以上是在build.gradle文件中直接定义Plugin，还可以在当前工程中、单独的项目中创建Plugin，一般情况不需要了解。</t></p>
+<p>怎么样，通过以上学习，再看android studio的gradle代码是不是小case了呢！</p>
+<p>引用：<br><a href="http://baike.baidu.com/view/32987.htm#11" target="_blank" rel="external">http://baike.baidu.com/view/32987.htm#11</a><br><a href="http://www.cnblogs.com/CloudTeng/p/3418260.html" target="_blank" rel="external">http://www.cnblogs.com/CloudTeng/p/3418260.html</a> gradle增量式构建机制</p>
+
+					</div>
+
+			  <!-- about -->
+			  
+		</div>
+
+		<!-- pagination -->
+	  
+
+		<div class="comment-section">
+  
+  
+   <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="_posts/gradle-use-note.md" data-title="Gradle 用法总结" data-url="http://jijiaxin89.com/2015/08/29/gradle-use-note/"></div>
+    <!-- 多说评论框 end -->
+   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'jijiaxin'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  
+
+
+</div>
+	</div>
+
+	
+
+</div>
+
+
+		<footer>
+			
+
+<p>
+  由 <a href="https://hexo.io">hexo</a> 强力驱动 | 搭载 <a href="https://github.com/wayou/hexo-theme-material">material</a> 主题
+</p>
+<p>
+  &copy; 2017 <a href="http://jijiaxin89.com"> 季訫 </a>
+</p>
+<a id="gotop" href="#" title="back to top"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+
+		</footer>
+	  </div>
+
+		<!-- <script src="/libs/bs/js/bootstrap.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script>(typeof $().modal == 'function')|| document.write('<script src="/libs/bs/js/bootstrap.min.js" type="text/javascript"><\/script>')</script>
+
+		<!-- material design -->
+		<!-- <script src="/libs/bs-material/js/ripples.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/ripples.min.js"></script>
+		<!-- <script src="/libs/bs-material/js/material.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/material.min.js"></script>
+		<!-- toc -->
+		<!-- <script src="/libs/tocify/jquery-ui.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/libs/tocify/jquery.tocify.custom.js"></script>
+
+		<script src="/js/main.js"></script>
+
+	</body>
+</html>

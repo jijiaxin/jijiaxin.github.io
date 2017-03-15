@@ -1,0 +1,225 @@
+	<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android SDK 无法更新的问题 | 微凉一季</title>
+  <meta name="author" content="季訫">
+  
+  <meta name="description" content="往事如烟，随风而逝">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Android SDK 无法更新的问题"/>
+  <meta property="og:site_name" content="微凉一季"/>
+
+  
+  
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#009688">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#009688">
+		<!-- favicon end -->
+    <!-- <link href="/favicon.ico" rel="icon"> -->
+  
+
+  <!-- toc -->
+  <link rel="stylesheet" href="/libs/tocify/jquery.tocify.css" media="screen" type="text/css">
+
+  <!-- <link rel="stylesheet" href="/libs/bs/css/bootstrap.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- material design -->
+	<!-- <link rel="stylesheet" href="/libs/bs-material/css/ripples.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/ripples.min.css" media="screen" type="text/css">
+  <!-- <link rel="stylesheet" href="/libs/bs-material/css/material.min.css" media="screen" type="text/css"> -->
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/material.min.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/highlight.light.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+  
+  <!-- 百度统计 -->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?965a6e7fe7dbf925b4191360c79b5e64";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+  
+
+  
+
+  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/libs/jquery-2.0.3.min.js" type="text/javascript"><\/script>')</script>
+
+</head>
+
+ 	<body>
+	  <nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">菜单</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">微凉一季</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="/" title="">
+                    <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives" title="">
+                    <i class="fa fa-list"></i>存档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/about" title="">
+                    <i class="fa fa-info-circle"></i>关于
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/atom.xml" title="这是一个订阅源">
+                    <i class="fa fa-rss"></i>RSS
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	  <div class="container" >
+	    <div class="row">
+	
+	<div class="col-md-9 center-content">
+	
+
+		<div class="content">
+			<!-- index -->
+		   
+
+			  		<h2>Android SDK 无法更新的问题</h2>
+					
+					<div>
+						<span class="post-time">2015-08-28 14:39:33</span>
+					</div>	
+					
+
+					<div class="article-content">
+						<p>最近一直更新不了sdk的兼容库。22.2.0以上的都没有，由于之前没有硬需求，也就忍了没更新。忍一时有时候并不会风平浪静，最近由于要接入印象笔记的分享，他家的demo用的最新的库，不更新高低是跑不起来，没办法，只有更新了。<br>由于臭名卓著的GFW &amp;&amp; 自己对android更新机制其实了解的并不深入，所以搞了半天就是更新不了，真是醉了，闹得昨晚做梦，梦见没有墙了，无障碍的开发了，我敢打赌昨晚我一定笑出声来了。<br>现实是残酷的，今早我来到公司问题依旧，有问题还得印着头皮上啊，好在经过一上午折腾是好了。感谢上帝。同行们挺艰辛的，与bug斗，与产品经理斗，还要与GFW斗。</p>
+<hr>
+<h2 id="为了让以后得路好走，少踩坑，记录一下。"><a href="#为了让以后得路好走，少踩坑，记录一下。" class="headerlink" title="为了让以后得路好走，少踩坑，记录一下。"></a>为了让以后得路好走，少踩坑，记录一下。</h2><a id="more"></a>
+<p>首先翻墙，我至少用了3种翻墙方法，youtube都飞起了，但是sdk依旧跟新不了。<br>几经尝试，发现ping dl.google.com 通，但是ping dl-ssl.google.com却不通，但是sdk manger分明提示在用https下载走得dl-ssl.google.com。google了一下，发现可以强制设置走http，据说是因为伟大的国家安全部门无法检测https就强暴的给屏蔽了，然而http是可以的，这尼玛再给墙了我就要骂人了。然后根据网上的方法：</p>
+<h4 id="点开设置option："><a href="#点开设置option：" class="headerlink" title="点开设置option："></a>点开设置option：</h4><p><img src="http://upload-images.jianshu.io/upload_images/650671-37ab22b729be28d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="设置强制走http："><a href="#设置强制走http：" class="headerlink" title="设置强制走http："></a>设置强制走http：</h4><p><img src="http://upload-images.jianshu.io/upload_images/650671-7f42f8cb086a8a3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>本希望这样子就强制走http,可以愉快的更新了，没想到然并卵。</p>
+<h4 id="关键！！关键！！关键！！"><a href="#关键！！关键！！关键！！" class="headerlink" title=" 关键！！关键！！关键！！"></a><strong> 关键！！关键！！关键！！</strong></h4><p>又一通乱点，终于发现了玄机，密室门开啦！</p>
+<h4 id="看这里："><a href="#看这里：" class="headerlink" title="看这里："></a>看这里：</h4><p><img src="http://upload-images.jianshu.io/upload_images/650671-dd605fecdcb575d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>日了哮天犬了，怎么这里又有https。</p>
+<h4 id="很自然选择disable-all。"><a href="#很自然选择disable-all。" class="headerlink" title="很自然选择disable all。"></a>很自然选择disable all。</h4><p><img src="http://upload-images.jianshu.io/upload_images/650671-9091f5ecab034a30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">。</p>
+<h4 id="ok，好了！"><a href="#ok，好了！" class="headerlink" title="ok，好了！"></a>ok，好了！</h4><p>顺利更新，欣欣然感觉春天来了。</p>
+<p>难道这就是剧终吗，显然少了点跌宕的剧情。</p>
+<p>一看依赖的库还是22，23去哪了呢，adt，tools和platform-tools都已经是最新了，然而android support libary还是22,<br>。。。。。<br>更郁闷的是，我又不小心把22给删了。。。（后话，删的漂亮，因祸得福）<br>然后sdk manger再也检测不到android support libary，人间蒸发。。。。</p>
+<p>好吧，我服了，你是大哥。</p>
+<h4 id="又想到了上面的那个关键"><a href="#又想到了上面的那个关键" class="headerlink" title="又想到了上面的那个关键"></a>又想到了上面的那个关键</h4><p>我就试了一下，点了一下enable all ，当然这是不能更新的，但是！继续点击一下disable all，重新检测，终于出来了android support libary！还是23的！！</p>
+<p>what a fucking day。</p>
+<p>但是总算是好了，尘埃落地，更新完毕，接下来好好开发吧</p>
+<p><strong> 我们不过是想开发android ！</strong> 多么痛的领悟，GFW严重阻碍了技术的发展，啥时候，我国没有了GFW，墙倒了，我相信，我们国家能多一些改变世界的科技人才吧。。。<br>一把辛酸泪。</p>
+
+					</div>
+
+			  <!-- about -->
+			  
+		</div>
+
+		<!-- pagination -->
+	  
+
+		<div class="comment-section">
+  
+  
+   <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="_posts/sdk-manger-up-to-data.md" data-title="Android SDK 无法更新的问题" data-url="http://jijiaxin89.com/2015/08/28/sdk-manger-up-to-data/"></div>
+    <!-- 多说评论框 end -->
+   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'jijiaxin'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  
+
+
+</div>
+	</div>
+
+	
+
+</div>
+
+
+		<footer>
+			
+
+<p>
+  由 <a href="https://hexo.io">hexo</a> 强力驱动 | 搭载 <a href="https://github.com/wayou/hexo-theme-material">material</a> 主题
+</p>
+<p>
+  &copy; 2017 <a href="http://jijiaxin89.com"> 季訫 </a>
+</p>
+<a id="gotop" href="#" title="back to top"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+
+		</footer>
+	  </div>
+
+		<!-- <script src="/libs/bs/js/bootstrap.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script>(typeof $().modal == 'function')|| document.write('<script src="/libs/bs/js/bootstrap.min.js" type="text/javascript"><\/script>')</script>
+
+		<!-- material design -->
+		<!-- <script src="/libs/bs-material/js/ripples.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/ripples.min.js"></script>
+		<!-- <script src="/libs/bs-material/js/material.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/material.min.js"></script>
+		<!-- toc -->
+		<!-- <script src="/libs/tocify/jquery-ui.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/libs/tocify/jquery.tocify.custom.js"></script>
+
+		<script src="/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,225 @@
+	<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android事件分发机制和事件冲突 | 微凉一季</title>
+  <meta name="author" content="季訫">
+  
+  <meta name="description" content="往事如烟，随风而逝">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Android事件分发机制和事件冲突"/>
+  <meta property="og:site_name" content="微凉一季"/>
+
+  
+  
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#009688">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#009688">
+		<!-- favicon end -->
+    <!-- <link href="/favicon.ico" rel="icon"> -->
+  
+
+  <!-- toc -->
+  <link rel="stylesheet" href="/libs/tocify/jquery.tocify.css" media="screen" type="text/css">
+
+  <!-- <link rel="stylesheet" href="/libs/bs/css/bootstrap.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- material design -->
+	<!-- <link rel="stylesheet" href="/libs/bs-material/css/ripples.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/ripples.min.css" media="screen" type="text/css">
+  <!-- <link rel="stylesheet" href="/libs/bs-material/css/material.min.css" media="screen" type="text/css"> -->
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/material.min.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/highlight.light.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+  
+  <!-- 百度统计 -->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?965a6e7fe7dbf925b4191360c79b5e64";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+  
+
+  
+
+  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/libs/jquery-2.0.3.min.js" type="text/javascript"><\/script>')</script>
+
+</head>
+
+ 	<body>
+	  <nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">菜单</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">微凉一季</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="/" title="">
+                    <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives" title="">
+                    <i class="fa fa-list"></i>存档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/about" title="">
+                    <i class="fa fa-info-circle"></i>关于
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/atom.xml" title="这是一个订阅源">
+                    <i class="fa fa-rss"></i>RSS
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	  <div class="container" >
+	    <div class="row">
+	
+	<div class="col-md-9 center-content">
+	
+
+		<div class="content">
+			<!-- index -->
+		   
+
+			  		<h2>Android事件分发机制和事件冲突</h2>
+					
+					<div>
+						<span class="post-time">2016-02-21 22:11:11</span>
+					</div>	
+					
+
+					<div class="article-content">
+						<p>彻底理解Android事件分发机制有利于做一个具有良好交互性的应用。</p>
+<p>1.View和ViewGroup是什么。<br>2.事件。<br>3.View事件的分发机制<br>4.ViewGroup事件的分发机制</p>
+<p>Android的UI界面都是由View和ViewGroup及其派生类组合而成的。其中，View是所有UI组件的基类，而ViewGroup是容纳这些组件的容器，其本身也是从View派生出来的，也就是说ViewGroup的父类就是View。<br><a id="more"></a><br>自顶向下的事件分发与自底向上的事件响应机制！</p>
+<p>用作默认事件处理程序的回调方法。类定义中的那种。<br>事件处理程序。设置的监听器的那种。</p>
+<p>自定义组件常用默认事件处理程序回调方法。<br>onKeyDown(int, KeyEvent)：在发生新的按键事件时调用<br>onKeyUp(int, KeyEvent)：在发生按键弹起事件时调用<br>onTrackballEvent(MotionEvent)：在发生轨迹球运动事件时调用<br>onTouchEvent(MotionEvent)：在发生触摸屏运动事件时调用<br>onFocusChanged(boolean, int, Rect)：在视图获得或失去焦点时调用。</p>
+<p>为了拦截事件，可以扩展View并重写事件处理方法，但是为了处理此类事件而扩展每个视图并不现实，因此View还包括一系列嵌套接口以及您可以更加轻松定义的回调，即事件侦听器。onTouchListener，onClickListener之类的。扩展View能更自如的定义事件处理程序。<br>嵌套接口onClick没有返回值，其他事件侦听器需要返回布尔值。返回“true”表示您已经处理事件且事件应就此停止；如果您尚未处理事件,或事件应该继续传递给其他任何点击侦听器，则返回“false”。<br>onTouch()： 此方法返回一个布尔值，表示侦听器是否处理完此事件。重要的是，此事件可以拥有多个分先后顺序的操作。 因此，如果在收到关闭操作事件时返回“false”，则表示您并未处理完此事件，而且对其后续操作也不感兴趣。 因此，您无需执行事件内的任何其他操作，如手势或最终操作事件。</p>
+<p>注：Android 会先调用事件处理程序，然后从类定义调用合适的默认处理程序。比如：onTouchListener要优于onTouchEvent被执行。 因此，从这些事件侦听器返回“true”会停止将事件传播到其他事件侦听器，还会阻止回调视图对象中的默认事件处理程序。 因此，在返回“true”时请确保您要终止事件。</p>
+<p>还有一些其他方法值得您注意，尽管它们并非 View 类的一部分，但可能会直接影响所能采取的事件处理方式。 因此，在管理布局内更复杂的事件时，请考虑使用以下其他方法：</p>
+<p>Activity.dispatchTouchEvent(MotionEvent)：此方法允许 Activity 在分派给窗口之前截获所有触摸事件。<br>ViewGroup.onInterceptTouchEvent(MotionEvent)：此方法允许 ViewGroup 监视分派给子视图的事件。<br>ViewParent.requestDisallowInterceptTouchEvent(boolean)： 对父视图调用此方法表明不应使用 onInterceptTouchEvent(MotionEvent) 截获触摸事件。ViewParent是个接口。</p>
+<p>请记住，硬按键事件总是传递给目前处于焦点的视图对象。它们从视图 层次结构的顶部开始分派，然后向下，直至到达合适的目的地。如果您的视图对象（或视图对象的子项）目前具有焦点，那么您可以看到事件经由 dispatchKeyEvent() 方法的分派过程。除了通过视图捕获按键事件即onKey()<br>在 View.OnKeyListener 中，<br>您还可以使用 onKeyDown() 和 onKeyUp() 接收 Activity 内部的所有事件。</p>
+<p>触摸模式：<br>当用户使用方向键或轨迹球导航用户界面时，必须聚焦到可操作项目上（如按钮），以便用户看到将接受输入的对象。 但是，如果设备具有触摸功能且用户开始通过触摸界面与之交互，则不再需要突出显示项目或聚焦到特定视图对象上。 因此，有一种交互模式称为“触摸模式”。对于支持触摸功能的设备，当用户触摸屏幕时，设备会立即进入触摸模式。 自此以后，只有 isFocusableInTouchMode() 为“true”的视图才可聚焦，如文本编辑小工具。其他可触摸的视图（如按钮）在用户触摸时不会获得焦点；按下时它们只是触发点击侦听器。无论何时，只要用户点击方向键或滚动轨迹球，设备就会退出触摸模式并找到一个视图使其获得焦点。 整个系统（所有窗口和 Activity）都将保持触摸模式状态。要查询当前状态，您可以调用 isInTouchMode() 来检查设备目前是否处于触摸模式。</p>
+<p>焦点移动所使用的算法会查找指定方向上距离最近的元素。 </p>
+<hr>
+<p>在极少数情况下，默认算法可能与开发者的期望行为不一致。这时可以：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;LinearLayout</div><div class="line">    android:orientation="vertical"</div><div class="line">    ... &gt;</div><div class="line">  &lt;Button android:id="@+id/top"</div><div class="line">          android:nextFocusUp="@+id/bottom"</div><div class="line">          ... /&gt;</div><div class="line">  &lt;Button android:id="@+id/bottom"</div><div class="line">          android:nextFocusDown="@+id/top"</div><div class="line">          ... /&gt;</div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure></p>
+<p>若要将一个视图声明为在 UI 中可聚焦（传统上并非如此），请在布局声明中将 android:focusable XML 属性添加到该视图。将值设置为 true。此外，您还可以使用 android:focusableInTouchMode 将 Vew 声明为在触摸模式下可聚焦。</p>
+<p>要请求要获得焦点的特定视图，请调用 requestFocus()。</p>
+<p>Managing Touch Event in a ViewGroup</p>
+
+					</div>
+
+			  <!-- about -->
+			  
+		</div>
+
+		<!-- pagination -->
+	  
+
+		<div class="comment-section">
+  
+  
+   <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="_posts/Android事件分发机智和事件冲突.md" data-title="Android事件分发机制和事件冲突" data-url="http://jijiaxin89.com/2016/02/21/Android事件分发机智和事件冲突/"></div>
+    <!-- 多说评论框 end -->
+   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'jijiaxin'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  
+
+
+</div>
+	</div>
+
+	
+
+</div>
+
+
+		<footer>
+			
+
+<p>
+  由 <a href="https://hexo.io">hexo</a> 强力驱动 | 搭载 <a href="https://github.com/wayou/hexo-theme-material">material</a> 主题
+</p>
+<p>
+  &copy; 2017 <a href="http://jijiaxin89.com"> 季訫 </a>
+</p>
+<a id="gotop" href="#" title="back to top"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+
+		</footer>
+	  </div>
+
+		<!-- <script src="/libs/bs/js/bootstrap.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script>(typeof $().modal == 'function')|| document.write('<script src="/libs/bs/js/bootstrap.min.js" type="text/javascript"><\/script>')</script>
+
+		<!-- material design -->
+		<!-- <script src="/libs/bs-material/js/ripples.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/ripples.min.js"></script>
+		<!-- <script src="/libs/bs-material/js/material.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/material.min.js"></script>
+		<!-- toc -->
+		<!-- <script src="/libs/tocify/jquery-ui.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/libs/tocify/jquery.tocify.custom.js"></script>
+
+		<script src="/js/main.js"></script>
+
+	</body>
+</html>

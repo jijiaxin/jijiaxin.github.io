@@ -1,0 +1,272 @@
+	<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android M 新的运行时权限开发者需要知道的一切 | 微凉一季</title>
+  <meta name="author" content="季訫">
+  
+  <meta name="description" content="往事如烟，随风而逝">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Android M 新的运行时权限开发者需要知道的一切"/>
+  <meta property="og:site_name" content="微凉一季"/>
+
+  
+  
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#009688">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#009688">
+		<!-- favicon end -->
+    <!-- <link href="/favicon.ico" rel="icon"> -->
+  
+
+  <!-- toc -->
+  <link rel="stylesheet" href="/libs/tocify/jquery.tocify.css" media="screen" type="text/css">
+
+  <!-- <link rel="stylesheet" href="/libs/bs/css/bootstrap.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- material design -->
+	<!-- <link rel="stylesheet" href="/libs/bs-material/css/ripples.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/ripples.min.css" media="screen" type="text/css">
+  <!-- <link rel="stylesheet" href="/libs/bs-material/css/material.min.css" media="screen" type="text/css"> -->
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/material.min.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/highlight.light.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+  
+  <!-- 百度统计 -->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?965a6e7fe7dbf925b4191360c79b5e64";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+  
+
+  
+
+  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/libs/jquery-2.0.3.min.js" type="text/javascript"><\/script>')</script>
+
+</head>
+
+ 	<body>
+	  <nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">菜单</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">微凉一季</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="/" title="">
+                    <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives" title="">
+                    <i class="fa fa-list"></i>存档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/about" title="">
+                    <i class="fa fa-info-circle"></i>关于
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/atom.xml" title="这是一个订阅源">
+                    <i class="fa fa-rss"></i>RSS
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	  <div class="container" >
+	    <div class="row">
+	
+	<div class="col-md-9 center-content">
+	
+
+		<div class="content">
+			<!-- index -->
+		   
+
+			  		<h2>Android M 新的运行时权限开发者需要知道的一切</h2>
+					
+					<div>
+						<span class="post-time">2015-08-30 10:11:59</span>
+					</div>	
+					
+
+					<div class="article-content">
+						<p>android M 的名字官方刚发布不久，最终正式版即将来临！<br>android在不断发展，最近的更新 M 非常不同，一些主要的变化例如运行时权限将有颠覆性影响。惊讶的是android社区鲜有谈论这事儿，尽管这事很重要或许在不远的将来会引发很严重的问题。<br>这是今天我写这篇博客的原因。这里有一切关于android运行时权限你需要知道的，包括如何在代码中实现。现在亡羊补牢还不晚。</p>
+<h3 id="新运行时权限"><a href="#新运行时权限" class="headerlink" title="新运行时权限"></a>新运行时权限</h3><p>android的权限系统一直是首要的安全概念，因为这些权限只在安装的时候被询问一次。一旦安装了，app可以在用户毫不知晓的情况下访问权限内的所有东西。<br>难怪一些坏蛋利用这个缺陷恶意收集用户数据用来做坏事了！<br>android小组也知道这事儿。7年了！权限系统终于被重新设计了。在android6.0棉花糖，app将不会在安装的时候授予权限。取而代之的是，app不得不在运行时一个一个询问用户授予权限。<br><a id="more"></a></p>
+<p><img src="http://inthecheesefactory.com/uploads/source/blog/mpermission/runtimepermission.jpg" alt=""></p>
+<p>注意权限询问对话框不会自己弹出来。开发者不得不自己调用。如果开发者要调用的一些函数需要某权限而用户又拒绝授权的话，函数将抛出异常直接导致程序崩溃。</p>
+<p><img src="http://inthecheesefactory.com/uploads/source/blog/mpermission/runtimepermissioncrash.jpg" alt=""></p>
+<p>另外，用户也可以随时在设置里取消已经授权的权限。</p>
+<p><img src="http://inthecheesefactory.com/uploads/source/blog/mpermission/permissionsrevoke.jpg" alt=""></p>
+<p>你或许已经感觉到背后生出一阵寒意。。。如果你是个android开发者，意味着要完全改变你的程序逻辑。你不能像以前那样直接调用方法了，你不得不为每个需要的地方检察权限，否则app就崩溃了！<br>是的。我不能哄你说这是简单的事儿。尽管这对用户来说是好事，但是对开发者来说就是噩梦。我们不得不修改编码不然不论短期还是长远来看都是潜在的问题。<br>这个新的运行时权限仅当我们设置<strong>targetSdkVersion to 23</strong>（这意味着你已经在23上测试通过了）才起作用，当然还要是M系统的手机。app在6.0之前的设备依然使用旧的权限系统。</p>
+<h3 id="已经发布了的app会发生什么"><a href="#已经发布了的app会发生什么" class="headerlink" title="已经发布了的app会发生什么"></a>已经发布了的app会发生什么</h3><p>新运行时权限可能已经让你开始恐慌了。<strong>“hey，伙计！我三年前发布的app可咋整呢。如果他被装到android 6.0上，我的app会崩溃吗？！？”</strong><br>莫慌张，放轻松。android小队又不傻，肯定考虑到了这情况。<strong>如果app的targetSdkVersion 低于 23，那将被认为app没有用23新权限测试过，那将被继续使用旧有规则：用户在安装的时候不得不接受所有权限，安装后app就有了那些权限咯！</strong></p>
+<p><img src="http://inthecheesefactory.com/uploads/source/blog/mpermission/mpermission22_1.jpg" alt=""></p>
+<p>然后app像以前一样奔跑！<strong>注意，此时用户依然可以取消已经同意的授权！</strong>用户取消授权时，android 6.0系统会警告，但这不妨碍用户取消授权。</p>
+<p><img src="http://inthecheesefactory.com/uploads/source/blog/mpermission/mpermission22denyperm_1.jpg" alt=""></p>
+<p>问题又来了，这时候你的app崩溃吗？<br><em>善意的主把这事也告诉了android小组，当我们在targetSdkVersion 低于23的app调用一个需要权限的函数时，这个权限如果被用户取消授权了的话，不抛出异常。但是他将啥都不干，结果导致函数返回值是null或者0.</em></p>
+<p><img src="http://inthecheesefactory.com/uploads/source/blog/mpermission/targetsdkversion2223.jpg" alt=""></p>
+<p>别高兴的太早。尽管app不会调用这个函数时崩溃，返回值null或者0可能接下来依然导致崩溃。<br>好消息（至少目前看来）是这类取消权限的情况比较少，我相信很少用户这么搞。如果他们这么办了，后果自负咯。<br>但从长远看来，我相信还是会有大量用户会关闭一些权限。我们app不能在新设备完美运行这是不可接受的。<br>怎样让他完美运行呢，你最好修改代码支持最新的权限系统，而且我建议你立刻着手搞起！<br>代码没有成功改为支持最新运行时权限的app,不要设置targetSdkVersion 23 发布，否则你就有麻烦了。只有当你测试过了，再改为targetSdkVersion 23 。<br><strong>警告：现在你在android studio新建项目，targetSdkVersion 会自动设置为 23。如果你还没支持新运行时权限，我建议你首先把targetSdkVersion 降级到22 </strong></p>
+<h3 id="PROTECTION-NORMAL类权限"><a href="#PROTECTION-NORMAL类权限" class="headerlink" title="PROTECTION_NORMAL类权限"></a>PROTECTION_NORMAL类权限</h3><p>当用户安装或更新应用时，系统将授予应用所请求的属于 PROTECTION_NORMAL 的所有权限（安装时授权的一类基本权限）。这类权限包括：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">android.permission.ACCESS_LOCATION_EXTRA_COMMANDS</div><div class="line">android.permission.ACCESS_NETWORK_STATE</div><div class="line">android.permission.ACCESS_NOTIFICATION_POLICY</div><div class="line">android.permission.ACCESS_WIFI_STATE</div><div class="line">android.permission.ACCESS_WIMAX_STATE</div><div class="line">android.permission.BLUETOOTH</div><div class="line">android.permission.BLUETOOTH_ADMIN</div><div class="line">android.permission.BROADCAST_STICKY</div><div class="line">android.permission.CHANGE_NETWORK_STATE</div><div class="line">android.permission.CHANGE_WIFI_MULTICAST_STATE</div><div class="line">android.permission.CHANGE_WIFI_STATE</div><div class="line">android.permission.CHANGE_WIMAX_STATE</div><div class="line">android.permission.DISABLE_KEYGUARD</div><div class="line">android.permission.EXPAND_STATUS_BAR</div><div class="line">android.permission.FLASHLIGHT</div><div class="line">android.permission.GET_ACCOUNTS</div><div class="line">android.permission.GET_PACKAGE_SIZE</div><div class="line">android.permission.INTERNET</div><div class="line">android.permission.KILL_BACKGROUND_PROCESSES</div><div class="line">android.permission.MODIFY_AUDIO_SETTINGS</div><div class="line">android.permission.NFC</div><div class="line">android.permission.READ_SYNC_SETTINGS</div><div class="line">android.permission.READ_SYNC_STATS</div><div class="line">android.permission.RECEIVE_BOOT_COMPLETED</div><div class="line">android.permission.REORDER_TASKS</div><div class="line">android.permission.REQUEST_INSTALL_PACKAGES</div><div class="line">android.permission.SET_TIME_ZONE</div><div class="line">android.permission.SET_WALLPAPER</div><div class="line">android.permission.SET_WALLPAPER_HINTS</div><div class="line">android.permission.SUBSCRIBED_FEEDS_READ</div><div class="line">android.permission.TRANSMIT_IR</div><div class="line">android.permission.USE_FINGERPRINT</div><div class="line">android.permission.VIBRATE</div><div class="line">android.permission.WAKE_LOCK</div><div class="line">android.permission.WRITE_SYNC_SETTINGS</div><div class="line">com.android.alarm.permission.SET_ALARM</div><div class="line">com.android.launcher.permission.INSTALL_SHORTCUT</div><div class="line">com.android.launcher.permission.UNINSTALL_SHORTCUT</div></pre></td></tr></table></figure>
+<p>只需要在AndroidManifest.xml中简单声明这些权限就好，安装时就授权。不需要每次使用时都检查权限，而且用户不能取消以上授权。</p>
+<h3 id="让你的app支持新运行时权限"><a href="#让你的app支持新运行时权限" class="headerlink" title="让你的app支持新运行时权限"></a>让你的app支持新运行时权限</h3><p>是时候让我们的app支持新权限模型了，从设置<code>compileSdkVersion</code> and <code>targetSdkVersion</code> 为 23开始吧.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    compileSdkVersion <span class="number">23</span></div><div class="line">    ...</div><div class="line"> </div><div class="line">    defaultConfig &#123;</div><div class="line">        ...</div><div class="line">        targetSdkVersion <span class="number">23</span></div><div class="line">        ...</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>例子，我想用以下方法添加联系人。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"Contacts"</span>;</div><div class="line"><span class="keyword">private</span> <span class="keyword">void</span> insertDummyContact() &#123;</div><div class="line">    <span class="comment">// Two operations are needed to insert a new contact.</span></div><div class="line">    ArrayList&lt;ContentProviderOperation&gt; operations = <span class="keyword">new</span> ArrayList&lt;ContentProviderOperation&gt;(<span class="number">2</span>);</div><div class="line"> </div><div class="line">    <span class="comment">// First, set up a new raw contact.</span></div><div class="line">    ContentProviderOperation.Builder op =</div><div class="line">            ContentProviderOperation.newInsert(ContactsContract.RawContacts.CONTENT_URI)</div><div class="line">                    .withValue(ContactsContract.RawContacts.ACCOUNT_TYPE, <span class="literal">null</span>)</div><div class="line">                    .withValue(ContactsContract.RawContacts.ACCOUNT_NAME, <span class="literal">null</span>);</div><div class="line">    operations.add(op.build());</div><div class="line"> </div><div class="line">    <span class="comment">// Next, set the name for the contact.</span></div><div class="line">    op = ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)</div><div class="line">            .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, <span class="number">0</span>)</div><div class="line">            .withValue(ContactsContract.Data.MIMETYPE,</div><div class="line">                    ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE)</div><div class="line">            .withValue(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME,</div><div class="line">                    <span class="string">"__DUMMY CONTACT from runtime permissions sample"</span>);</div><div class="line">    operations.add(op.build());</div><div class="line"> </div><div class="line">    <span class="comment">// Apply the operations.</span></div><div class="line">    ContentResolver resolver = getContentResolver();</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        resolver.applyBatch(ContactsContract.AUTHORITY, operations);</div><div class="line">    &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</div><div class="line">        Log.d(TAG, <span class="string">"Could not add a new contact: "</span> + e.getMessage());</div><div class="line">    &#125; <span class="keyword">catch</span> (OperationApplicationException e) &#123;</div><div class="line">        Log.d(TAG, <span class="string">"Could not add a new contact: "</span> + e.getMessage());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面代码需要<code>WRITE_CONTACTS</code>权限。如果不询问授权，app就崩了。<br>下一步像以前一样在<code>AndroidManifest.xml</code>添加声明权限。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission <span class="string">android:</span>name=<span class="string">"android.permission.WRITE_CONTACTS"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>下一步，不得不再写个方法检查有没有权限。如果没有弹个对话框询问用户授权。然后你才可以下一步创建联系人。<br>权限被分组了，如下表：</p>
+<p><img src="http://inthecheesefactory.com/uploads/source/blog/mpermission/permgroup.png" alt=""></p>
+<p>同一组的任何一个权限被授权了，其他权限也自动被授权。例如，一旦<code>WRITE_CONTACTS</code>被授权了，app也有<code>READ_CONTACTS</code>和<code>GET_ACCOUNTS</code>权限了。<br>源码中被用来检查和请求权限的方法分别是Activity的<code>checkSelfPermission</code>和<code>requestPermissions</code>。这些方法在api23引入。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> <span class="keyword">private</span> <span class="keyword">int</span> REQUEST_CODE_ASK_PERMISSIONS = <span class="number">123</span>;</div><div class="line"> </div><div class="line"><span class="keyword">private</span> <span class="keyword">void</span> insertDummyContactWrapper() &#123;</div><div class="line">    <span class="keyword">int</span> hasWriteContactsPermission = checkSelfPermission(Manifest.permission.WRITE_CONTACTS);</div><div class="line">    <span class="keyword">if</span> (hasWriteContactsPermission != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">        requestPermissions(<span class="keyword">new</span> String[] &#123;Manifest.permission.WRITE_CONTACTS&#125;,</div><div class="line">                REQUEST_CODE_ASK_PERMISSIONS);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    insertDummyContact();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果已有权限，<code>insertDummyContact()</code>会执行。否则，<code>requestPermissions</code>被执行来弹出请求授权对话框，如下：</p>
+<p><img src="http://inthecheesefactory.com/uploads/source/blog/mpermission/requestpermission.jpg" alt=""></p>
+<p>不论用户同意还是拒绝，activity的<code>onRequestPermissionsResult</code>会被回调来通知结果（通过第三个参数），<code>grantResults</code>,如下：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> onRequestPermissionsResult(<span class="keyword">int</span> requestCode, String[] permissions, <span class="keyword">int</span>[] grantResults) &#123;</div><div class="line">    <span class="keyword">switch</span> (requestCode) &#123;</div><div class="line">        <span class="keyword">case</span> <span class="string">REQUEST_CODE_ASK_PERMISSIONS:</span></div><div class="line">            <span class="keyword">if</span> (grantResults[<span class="number">0</span>] == PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">                <span class="comment">// Permission Granted</span></div><div class="line">                insertDummyContact();</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="comment">// Permission Denied</span></div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"WRITE_CONTACTS Denied"</span>, Toast.LENGTH_SHORT)</div><div class="line">                        .show();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line"><span class="symbol">        default:</span></div><div class="line">            <span class="keyword">super</span>.onRequestPermissionsResult(requestCode, permissions, grantResults);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这就是新权限模型工作过程。代码真复杂但是只能去习惯它。。。为了让app很好兼容新权限模型，你不得不用以上类似方法处理所有需要的情况。<br>如果你想捶墙，现在是时候了。。。</p>
+<h3 id="处理-“不再提醒”"><a href="#处理-“不再提醒”" class="headerlink" title="处理 “不再提醒”"></a>处理 “不再提醒”</h3><p>如果用户拒绝某授权。下一次弹框，用户会有一个“不再提醒”的选项的来防止app以后继续请求授权。</p>
+<p><img src="http://inthecheesefactory.com/uploads/source/blog/mpermission/neveraskagain.jpg" alt=""></p>
+<p>如果这个选项在拒绝授权前被用户勾选了。下次为这个权限请求<code>requestPermissions</code>时，对话框就不弹出来了，结果就是，app啥都不干。<br>这将是很差的用户体验，用户做了操作却得不到响应。这种情况需要好好处理一下。在请求<code>requestPermissions</code>前，我们通过activity的<code>shouldShowRequestPermissionRationale</code>方法来检查是否需要弹出请求权限的提示对话框，代码如下：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> <span class="keyword">private</span> <span class="keyword">int</span> REQUEST_CODE_ASK_PERMISSIONS = <span class="number">123</span>;</div><div class="line"> </div><div class="line"><span class="keyword">private</span> <span class="keyword">void</span> insertDummyContactWrapper() &#123;</div><div class="line">    <span class="keyword">int</span> hasWriteContactsPermission = checkSelfPermission(Manifest.permission.WRITE_CONTACTS);</div><div class="line">    <span class="keyword">if</span> (hasWriteContactsPermission != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">            <span class="keyword">if</span> (!shouldShowRequestPermissionRationale(Manifest.permission.WRITE_CONTACTS)) &#123;</div><div class="line">                showMessageOKCancel(<span class="string">"You need to allow access to Contacts"</span>,</div><div class="line">                        <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</div><div class="line">                            <span class="meta">@Override</span></div><div class="line">                            <span class="keyword">public</span> <span class="keyword">void</span> onClick(DialogInterface dialog, <span class="keyword">int</span> which) &#123;</div><div class="line">                                requestPermissions(<span class="keyword">new</span> String[] &#123;Manifest.permission.WRITE_CONTACTS&#125;,</div><div class="line">                                        REQUEST_CODE_ASK_PERMISSIONS);</div><div class="line">                            &#125;</div><div class="line">                        &#125;);</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line">        requestPermissions(<span class="keyword">new</span> String[] &#123;Manifest.permission.WRITE_CONTACTS&#125;,</div><div class="line">                REQUEST_CODE_ASK_PERMISSIONS);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    insertDummyContact();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">private</span> <span class="keyword">void</span> showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) &#123;</div><div class="line">    <span class="keyword">new</span> AlertDialog.Builder(MainActivity.<span class="keyword">this</span>)</div><div class="line">            .setMessage(message)</div><div class="line">            .setPositiveButton(<span class="string">"OK"</span>, okListener)</div><div class="line">            .setNegativeButton(<span class="string">"Cancel"</span>, <span class="literal">null</span>)</div><div class="line">            .create()</div><div class="line">            .show();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当一个权限第一次被请求和用户标记过不再提醒的时候,我们写的对话框被展示。<br>最后一种情况，onRequestPermissionsResult 会收到PERMISSION_DENIED ，系统询问对话框不展示。</p>
+<p><img src="http://inthecheesefactory.com/uploads/source/blog/mpermission/rationaledialog.jpg" alt=""></p>
+<p>搞定！</p>
+<h3 id="一次请求多个权限"><a href="#一次请求多个权限" class="headerlink" title="一次请求多个权限"></a>一次请求多个权限</h3><p>当然了有时候需要好多权限，可以用上面方法一次请求多个权限。不要忘了为每个权限检查“不再提醒”的设置。<br>修改后的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> <span class="keyword">private</span> <span class="keyword">int</span> REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = <span class="number">124</span>;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">insertDummyContactWrapper</span><span class="params">()</span> </span>&#123;</div><div class="line">    List&lt;String&gt; permissionsNeeded = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line"> </div><div class="line">    <span class="keyword">final</span> List&lt;String&gt; permissionsList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">    <span class="keyword">if</span> (!addPermission(permissionsList, Manifest.permission.ACCESS_FINE_LOCATION))</div><div class="line">        permissionsNeeded.add(<span class="string">"GPS"</span>);</div><div class="line">    <span class="keyword">if</span> (!addPermission(permissionsList, Manifest.permission.READ_CONTACTS))</div><div class="line">        permissionsNeeded.add(<span class="string">"Read Contacts"</span>);</div><div class="line">    <span class="keyword">if</span> (!addPermission(permissionsList, Manifest.permission.WRITE_CONTACTS))</div><div class="line">        permissionsNeeded.add(<span class="string">"Write Contacts"</span>);</div><div class="line"> </div><div class="line">    <span class="keyword">if</span> (permissionsList.size() &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (permissionsNeeded.size() &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">// Need Rationale</span></div><div class="line">            String message = <span class="string">"You need to grant access to "</span> + permissionsNeeded.get(<span class="number">0</span>);</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; permissionsNeeded.size(); i++)</div><div class="line">                message = message + <span class="string">", "</span> + permissionsNeeded.get(i);</div><div class="line">            showMessageOKCancel(message,</div><div class="line">                    <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</div><div class="line">                        <span class="meta">@Override</span></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</div><div class="line">                            requestPermissions(permissionsList.toArray(<span class="keyword">new</span> String[permissionsList.size()]),</div><div class="line">                                    REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS);</div><div class="line">                        &#125;</div><div class="line">                    &#125;);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        requestPermissions(permissionsList.toArray(<span class="keyword">new</span> String[permissionsList.size()]),</div><div class="line">                REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    insertDummyContact();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">addPermission</span><span class="params">(List&lt;String&gt; permissionsList, String permission)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">        permissionsList.add(permission);</div><div class="line">        <span class="comment">// Check for Rationale Option</span></div><div class="line">        <span class="keyword">if</span> (!shouldShowRequestPermissionRationale(permission))</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果所有权限被授权，依然回调onRequestPermissionsResult，我用hashmap让代码整洁便于阅读。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> onRequestPermissionsResult(<span class="keyword">int</span> requestCode, String[] permissions, <span class="keyword">int</span>[] grantResults) &#123;</div><div class="line">    <span class="keyword">switch</span> (requestCode) &#123;</div><div class="line">        <span class="keyword">case</span> <span class="string">REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS:</span></div><div class="line">            &#123;</div><div class="line">            Map&lt;String, Integer&gt; perms = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</div><div class="line">            <span class="comment">// Initial</span></div><div class="line">            perms.put(Manifest.permission.ACCESS_FINE_LOCATION, PackageManager.PERMISSION_GRANTED);</div><div class="line">            perms.put(Manifest.permission.READ_CONTACTS, PackageManager.PERMISSION_GRANTED);</div><div class="line">            perms.put(Manifest.permission.WRITE_CONTACTS, PackageManager.PERMISSION_GRANTED);</div><div class="line">            <span class="comment">// Fill with results</span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; permissions.length; i++)</div><div class="line">                perms.put(permissions[i], grantResults[i]);</div><div class="line">            <span class="comment">// Check for ACCESS_FINE_LOCATION</span></div><div class="line">            <span class="keyword">if</span> (perms.get(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED</div><div class="line">                    &amp;&amp; perms.get(Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED</div><div class="line">                    &amp;&amp; perms.get(Manifest.permission.WRITE_CONTACTS) == PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">                <span class="comment">// All Permissions Granted</span></div><div class="line">                insertDummyContact();</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="comment">// Permission Denied</span></div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"Some Permission is Denied"</span>, Toast.LENGTH_SHORT)</div><div class="line">                        .show();</div><div class="line">            &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line"><span class="symbol">        default:</span></div><div class="line">            <span class="keyword">super</span>.onRequestPermissionsResult(requestCode, permissions, grantResults);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>条件灵活的，你自己设置。有的情况，一个权限没有授权，就不可用；但是也有情况，能工作，但是表现的是有所限制的。对于这个我不做评价，你自己设计吧。</p>
+<h3 id="用兼容库使代码兼容旧版"><a href="#用兼容库使代码兼容旧版" class="headerlink" title="用兼容库使代码兼容旧版"></a>用兼容库使代码兼容旧版</h3><p>以上代码在android 6.0以上运行没问题，但是23 api之前就不行了，因为没有那些方法。<br>粗暴的方法是检查版本</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= <span class="number">23</span>) &#123;</div><div class="line">    <span class="comment">// Marshmallow+</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// Pre-Marshmallow</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是太复杂，我建议用v4兼容库，已对这个做过兼容，用这个方法代替：</p>
+<ul>
+<li>ContextCompat.checkSelfPermission()<br>被授权函数返回PERMISSION_GRANTED，否则返回PERMISSION_DENIED ，在所有版本都是如此。</li>
+<li>ActivityCompat.requestPermissions()<br>这个方法在M之前版本调用，OnRequestPermissionsResultCallback 直接被调用，带着正确的 PERMISSION_GRANTED或者 PERMISSION_DENIED 。</li>
+<li>ActivityCompat.shouldShowRequestPermissionRationale()<br>在M之前版本调用，永远返回false。<br>用v4包的这三方法，完美兼容所有版本！这个方法需要额外的参数，Context or Activity。别的就没啥特别的了。下面是代码：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">insertDummyContactWrapper</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> hasWriteContactsPermission = ContextCompat.checkSelfPermission(MainActivity.<span class="keyword">this</span>,</div><div class="line">            Manifest.permission.WRITE_CONTACTS);</div><div class="line">    <span class="keyword">if</span> (hasWriteContactsPermission != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">        <span class="keyword">if</span> (!ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.<span class="keyword">this</span>,</div><div class="line">                Manifest.permission.WRITE_CONTACTS)) &#123;</div><div class="line">            showMessageOKCancel(<span class="string">"You need to allow access to Contacts"</span>,</div><div class="line">                    <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</div><div class="line">                        <span class="meta">@Override</span></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</div><div class="line">                            ActivityCompat.requestPermissions(MainActivity.<span class="keyword">this</span>,</div><div class="line">                                    <span class="keyword">new</span> String[] &#123;Manifest.permission.WRITE_CONTACTS&#125;,</div><div class="line">                                    REQUEST_CODE_ASK_PERMISSIONS);</div><div class="line">                        &#125;</div><div class="line">                    &#125;);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        ActivityCompat.requestPermissions(MainActivity.<span class="keyword">this</span>,</div><div class="line">                <span class="keyword">new</span> String[] &#123;Manifest.permission.WRITE_CONTACTS&#125;,</div><div class="line">                REQUEST_CODE_ASK_PERMISSIONS);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    insertDummyContact();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>后两个方法，我们也可以在Fragment中使用，用v13兼容包:<code>FragmentCompat.requestPermissions()</code> and <code>FragmentCompat.shouldShowRequestPermissionRationale()</code>和activity效果一样。</p>
+<h3 id="第三方库简化代码"><a href="#第三方库简化代码" class="headerlink" title="第三方库简化代码"></a>第三方库简化代码</h3><p>以上代码真尼玛复杂。为解决这事，有许多第三方库已经问世了，真66溜真有速度。我试了很多最终找到了个满意的<a href="https://github.com/hotchemi/PermissionsDispatcher" target="_blank" rel="external">hotchemi’s PermissionsDispatcher</a>。<br>他和我上面做的一样，只是简化了代码。灵活易扩展，试一下吧。如果不满足你可以找些其他的。</p>
+<h3 id="如果我的app还开着呢，权限被撤销了，会发生生么"><a href="#如果我的app还开着呢，权限被撤销了，会发生生么" class="headerlink" title="如果我的app还开着呢，权限被撤销了，会发生生么"></a>如果我的app还开着呢，权限被撤销了，会发生生么</h3><p>权限随时可以被撤销。</p>
+<p><img src="http://inthecheesefactory.com/uploads/source/blog/mpermission/permissionsrevoke.jpg" alt=""></p>
+<p>当app开着的时候被撤消了会发生什么呢？我试过了发现这时app会突然终止 terminated。app中的一切都被简单粗暴的停止了，因为terminated！对我来说这可以理解，因为系统如果允许它继续运行（没有某权限），这会召唤弗雷迪到我的噩梦里。或许更糟…</p>
+<h3 id="结论建议"><a href="#结论建议" class="headerlink" title="结论建议"></a>结论建议</h3><p>我相信你对新权限模型已经有了清晰的认识。我相信你也意识到了问题的严峻。<br>但是你没得选择。新运行时权限已经在棉花糖中被使用了。我们没有退路。我们现在唯一能做的就是保证app适配新权限模型.<br>欣慰的是只有少数权限需要运行时权限模型。大多数常用的权限，例如，网络访问，属于Normal Permission 在安装时自动会授权，当然你要声明，以后无需检查。因此，只有少部分代码你需要修改。<br>两个建议：<br>1.严肃对待新权限模型<br>2.如果你代码没支持新权限，不要设置targetSdkVersion 23 。尤其是当你在Studio新建工程时，不要忘了修改！</p>
+<p>说一下代码修改。这是大事，如果代码结构被设计的不够好，你需要一些很蛋疼的重构。每个app都要被修正。如上所说，我们没的选择。。。<br>列出所有你需要请求的权限所有情形，如果A被授权，B被拒绝，会发生什么。blah，blah。<br>祝重构顺利。把它列为你需要做的大事，从现在就开始着手做，以保证M正式发布的时候没有问题。<br>希望本文对你有用，快乐编码！</p>
+<blockquote>
+<p>译文来自 <a href="http://inthecheesefactory.com/blog/things-you-need-to-know-about-android-m-permission-developer-edition/en" target="_blank" rel="external">http://inthecheesefactory.com/blog/things-you-need-to-know-about-android-m-permission-developer-edition/en</a></p>
+</blockquote>
+
+					</div>
+
+			  <!-- about -->
+			  
+		</div>
+
+		<!-- pagination -->
+	  
+
+		<div class="comment-section">
+  
+  
+   <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="_posts/Android-s-Runtime-Permission.md" data-title="Android M 新的运行时权限开发者需要知道的一切" data-url="http://jijiaxin89.com/2015/08/30/Android-s-Runtime-Permission/"></div>
+    <!-- 多说评论框 end -->
+   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'jijiaxin'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  
+
+
+</div>
+	</div>
+
+	
+
+</div>
+
+
+		<footer>
+			
+
+<p>
+  由 <a href="https://hexo.io">hexo</a> 强力驱动 | 搭载 <a href="https://github.com/wayou/hexo-theme-material">material</a> 主题
+</p>
+<p>
+  &copy; 2017 <a href="http://jijiaxin89.com"> 季訫 </a>
+</p>
+<a id="gotop" href="#" title="back to top"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+
+		</footer>
+	  </div>
+
+		<!-- <script src="/libs/bs/js/bootstrap.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script>(typeof $().modal == 'function')|| document.write('<script src="/libs/bs/js/bootstrap.min.js" type="text/javascript"><\/script>')</script>
+
+		<!-- material design -->
+		<!-- <script src="/libs/bs-material/js/ripples.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/ripples.min.js"></script>
+		<!-- <script src="/libs/bs-material/js/material.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/material.min.js"></script>
+		<!-- toc -->
+		<!-- <script src="/libs/tocify/jquery-ui.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/libs/tocify/jquery.tocify.custom.js"></script>
+
+		<script src="/js/main.js"></script>
+
+	</body>
+</html>
