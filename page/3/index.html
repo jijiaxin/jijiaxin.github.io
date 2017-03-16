@@ -128,6 +128,38 @@
 				
 		            <div class="index-item-wrapper">
 		              <h3>
+		                <a class="post-title" href="/2015/12/02/Android热补丁技术总结/">Android热补丁技术总结(草稿未完)</a>
+		              </h3>
+									<span class="post-time">2015-12-02</span>
+		              <div class="excerpt"><h3 id="关于热修复"><a href="#关于热修复" class="headerlink" title="关于热修复"></a>关于热修复</h3><h4 id="DEX分包"><a href="#DEX分包" class="headerlink" title="DEX分包"></a>DEX分包</h4><p>ClassLoader方案基于的是android dex分包方案的</p>
+<h5 id="方法数天花板"><a href="#方法数天花板" class="headerlink" title="方法数天花板"></a>方法数天花板</h5><p>方法数量过多，编译时出错，提示：<br>Conversion to Dalvik format failed:Unable to execute dex: method ID not in [0, 0xffff]: 65536<br>原因：因为在Dalvik指令集里，调用方法的invoke-kind指令中，method reference index只给了16bits，最多能调用65535个方法，所以在生成dex文件的过程中，当方法数超过65535就会报错。<br>This number is significant in that it represents the total number of references that can be invoked by the code within a single Dalvik Executable (dex) bytecode file. </p>
+<h6 id="插件化"><a href="#插件化" class="headerlink" title="插件化"></a>插件化</h6><p>解决方案：使用的最多的是插件化，即将一些独立的功能做成一个单独的apk，当打开的时候使用DexClassLoader动态加载，然后使用反射机制来调用插件中的类和方法。<br>方案弊病：1.插件化只适合一些比较独立的模块；2.必须通过反射机制去调用插件的类和方法，因此，必须搭配一套插件框架来配合使用；<br></div>
+		              
+		                  <a class="btn btn-default" href="/2015/12/02/Android热补丁技术总结/"> MORE... </a>
+		              
+		            </div>
+				
+		            <div class="index-item-wrapper">
+		              <h3>
+		                <a class="post-title" href="/2015/11/23/Activity的onRestoreInstanceState()/">Activity的onRestoreInstanceState()</a>
+		              </h3>
+									<span class="post-time">2015-11-23</span>
+		              <div class="excerpt"><blockquote>
+<p>本文是官方文档的笔记。</p>
+</blockquote>
+<h4 id="Activity的销毁和恢复行为"><a href="#Activity的销毁和恢复行为" class="headerlink" title="Activity的销毁和恢复行为"></a>Activity的销毁和恢复行为</h4><h5 id="正常应用行为而销毁："><a href="#正常应用行为而销毁：" class="headerlink" title="正常应用行为而销毁："></a>正常应用行为而销毁：</h5><ul>
+<li>用户按返回按钮</li>
+<li>您的Activity通过调用 <code>finish()</code>示意自己的销毁</li>
+</ul>
+<h5 id="非正常销毁："><a href="#非正常销毁：" class="headerlink" title="非正常销毁："></a>非正常销毁：</h5><p>如果Activity当前被停止或长期未使用，或者前台Activity需要更多资源以致系统必须关闭后台进程恢复内存，系统也可能会销毁Activity。</p>
+<h5 id="正常销毁："><a href="#正常销毁：" class="headerlink" title="正常销毁："></a>正常销毁：</h5><p>Activity的实例概念将永久消失，因为行为指示不再需要Activity。<br></div>
+		              
+		                  <a class="btn btn-default" href="/2015/11/23/Activity的onRestoreInstanceState()/"> MORE... </a>
+		              
+		            </div>
+				
+		            <div class="index-item-wrapper">
+		              <h3>
 		                <a class="post-title" href="/2015/11/22/反编译备忘/">反编译备忘</a>
 		              </h3>
 									<span class="post-time">2015-11-22</span>
@@ -235,37 +267,6 @@
 		              
 		            </div>
 				
-		            <div class="index-item-wrapper">
-		              <h3>
-		                <a class="post-title" href="/2015/09/19/那些时光/">那些时光</a>
-		              </h3>
-									<span class="post-time">2015-09-19</span>
-		              <div class="excerpt"><blockquote>
-<p>“记得当时年纪小，我爱谈天你爱笑，有一回并肩坐在桃树下，风在林梢鸟在叫。我们不知怎样困觉了，梦里花儿知多少。”</p>
-</blockquote>
-<p>这是一段很美的歌词<br></div>
-		              
-		                  <a class="btn btn-default" href="/2015/09/19/那些时光/"> MORE... </a>
-		              
-		            </div>
-				
-		            <div class="index-item-wrapper">
-		              <h3>
-		                <a class="post-title" href="/2015/09/19/只言片语也很美/">只言片语也很美</a>
-		              </h3>
-									<span class="post-time">2015-09-19</span>
-		              <div class="excerpt"><p>词为艳科</p>
-<p>滚滚长江东逝水，浪花淘尽英雄。是非成败转头空。青山依旧在，几度夕阳红。<br>白发渔樵江渚上，惯看春月秋风。一壶浊酒喜相逢。古今多少事，都付笑谈中。</p>
-<p>记得当时年纪小，我爱谈天你爱笑，有一回并肩坐在桃树下，风在林梢鸟在叫。我们不知怎样困觉了，梦里花儿知多少。</p>
-<p>人生如白驹过隙，我们不能总是跟风惆怅，我们应该珍惜当下，珍惜身边人。</p>
-<p>人生恰如三月花，倾我一生一世念。 来如飞花散似烟，醉里不知年华限。</p>
-<p>人生如梦，聚散分离， 朝如春花幕凋零，几许相聚， 几许分离，缘来缘去岂随心。 青丝白发转眼间，漠然回首，几许沧桑在心头。 独自泪空流。</p>
-<p>“从来茶道七分满，留下三分是人情。”<br></div>
-		              
-		                  <a class="btn btn-default" href="/2015/09/19/只言片语也很美/"> MORE... </a>
-		              
-		            </div>
-				
 				<!-- archives -->
 			  
 		</div>
@@ -303,6 +304,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2017/03/16/long-time-no-see/"  > <i class="mdi-editor-insert-drive-file"></i>好久不见</a>
+      </li>
+    
+      <li>
+        <a href="/2017/03/16/study-notes-2/"  > <i class="mdi-editor-insert-drive-file"></i>写写记记(学习贰)</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/16/即将新的开始/"  > <i class="mdi-editor-insert-drive-file"></i>即将新的开始</a>
       </li>
     
@@ -312,14 +321,6 @@
     
       <li>
         <a href="/2016/04/08/Android与javaScript的交互/"  > <i class="mdi-editor-insert-drive-file"></i>Android与javaScript的交互</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/03/走走行行-生活壹/"  > <i class="mdi-editor-insert-drive-file"></i>走走行行(生活壹)</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/03/写写记记-学习壹/"  > <i class="mdi-editor-insert-drive-file"></i>写写记记(学习壹)</a>
       </li>
     
   </ul>

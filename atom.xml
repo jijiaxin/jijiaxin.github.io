@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jijiaxin89.com/"/>
-  <updated>2017-03-15T16:50:45.000Z</updated>
+  <updated>2017-03-16T03:46:38.000Z</updated>
   <id>http://jijiaxin89.com/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>好久不见</title>
+    <link href="http://jijiaxin89.com/2017/03/16/long-time-no-see/"/>
+    <id>http://jijiaxin89.com/2017/03/16/long-time-no-see/</id>
+    <published>2017-03-16T02:36:44.000Z</published>
+    <updated>2017-03-16T03:46:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>久违了！<br>真的好久不见了，距离上次写blog约一年了。<br>漫长的日日夜夜月月年年，这么不经意的就溜走了。。回想起来，甚至十年前的一幕幕仿佛还如同昨日，岁月蹉跎啊。<br>恍恍惚惚度日，似乎没什么变化。以往之不谏，来者犹可追。<br>接下来，对于生活，要多一点规划，多一点量化的目标。<br>最近任性地花了 2w 块大洋更新装备，似乎还没更新齐备，但是马马虎虎姑且能愉快的做个键盘侠了，眼下还缺个好点的鼠标和内胆包。对于这些个物件，我喜欢小点的，就像电脑，我就觉得 13 寸比 15 寸的好。主观的感觉东西一旦大了就离精致远了。<br>最近沉迷三国杀，正逼迫自己控制。。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;久违了！&lt;br&gt;真的好久不见了，距离上次写blog约一年了。&lt;br&gt;漫长的日日夜夜月月年年，这么不经意的就溜走了。。回想起来，甚至十年前的一幕幕仿佛还如同昨日，岁月蹉跎啊。&lt;br&gt;恍恍惚惚度日，似乎没什么变化。以往之不谏，来者犹可追。&lt;br&gt;接下来，对于生活，要多一点规划，
+    
+    </summary>
+    
+      <category term="随想回忆录" scheme="http://jijiaxin89.com/categories/%E9%9A%8F%E6%83%B3%E5%9B%9E%E5%BF%86%E5%BD%95/"/>
+    
+    
+      <category term="随想" scheme="http://jijiaxin89.com/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>写写记记(学习贰)</title>
+    <link href="http://jijiaxin89.com/2017/03/16/study-notes-2/"/>
+    <id>http://jijiaxin89.com/2017/03/16/study-notes-2/</id>
+    <published>2017-03-16T02:34:05.000Z</published>
+    <updated>2017-03-16T03:01:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="3-16号-周四"><a href="#3-16号-周四" class="headerlink" title="3/16号  周四"></a>3/16号  周四</h3><p>Mac 终端按tab键 自动补全忽略大小写</p>
+<p>打开终端，输入：<br>nano .inputrc</p>
+<p>在里面粘贴上以下语句：</p>
+<p>set completion-ignore-case on<br>set show-all-if-ambiguous on<br>TAB: menu-complete</p>
+<p>Control+O，回车保存，重启终端，OK！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;3-16号-周四&quot;&gt;&lt;a href=&quot;#3-16号-周四&quot; class=&quot;headerlink&quot; title=&quot;3/16号  周四&quot;&gt;&lt;/a&gt;3/16号  周四&lt;/h3&gt;&lt;p&gt;Mac 终端按tab键 自动补全忽略大小写&lt;/p&gt;
+&lt;p&gt;打开终端，输入：&lt;br&gt;nan
+    
+    </summary>
+    
+      <category term="随想回忆录" scheme="http://jijiaxin89.com/categories/%E9%9A%8F%E6%83%B3%E5%9B%9E%E5%BF%86%E5%BD%95/"/>
+    
+    
+      <category term="随想" scheme="http://jijiaxin89.com/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
   
   <entry>
     <title>即将新的开始</title>
@@ -772,118 +823,6 @@
 &lt;li&gt;Alt+F7  &lt;strong&gt;查找一个类在哪被用到了&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Ctrl+alt+B 查看一个接口方法的实现方法，Ctrl+B查看一个接口方法的使用&lt;/li&gt;
 &lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Android技术小栈" scheme="http://jijiaxin89.com/categories/Android%E6%8A%80%E6%9C%AF%E5%B0%8F%E6%A0%88/"/>
-    
-    
-      <category term="经验" scheme="http://jijiaxin89.com/tags/%E7%BB%8F%E9%AA%8C/"/>
-    
-      <category term="Android栈" scheme="http://jijiaxin89.com/tags/Android%E6%A0%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android热补丁技术总结(草稿未完)</title>
-    <link href="http://jijiaxin89.com/2015/12/02/Android%E7%83%AD%E8%A1%A5%E4%B8%81%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
-    <id>http://jijiaxin89.com/2015/12/02/Android热补丁技术总结/</id>
-    <published>2015-12-02T10:32:19.000Z</published>
-    <updated>2017-03-15T16:50:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="关于热修复"><a href="#关于热修复" class="headerlink" title="关于热修复"></a>关于热修复</h3><h4 id="DEX分包"><a href="#DEX分包" class="headerlink" title="DEX分包"></a>DEX分包</h4><p>ClassLoader方案基于的是android dex分包方案的</p>
-<h5 id="方法数天花板"><a href="#方法数天花板" class="headerlink" title="方法数天花板"></a>方法数天花板</h5><p>方法数量过多，编译时出错，提示：<br>Conversion to Dalvik format failed:Unable to execute dex: method ID not in [0, 0xffff]: 65536<br>原因：因为在Dalvik指令集里，调用方法的invoke-kind指令中，method reference index只给了16bits，最多能调用65535个方法，所以在生成dex文件的过程中，当方法数超过65535就会报错。<br>This number is significant in that it represents the total number of references that can be invoked by the code within a single Dalvik Executable (dex) bytecode file. </p>
-<h6 id="插件化"><a href="#插件化" class="headerlink" title="插件化"></a>插件化</h6><p>解决方案：使用的最多的是插件化，即将一些独立的功能做成一个单独的apk，当打开的时候使用DexClassLoader动态加载，然后使用反射机制来调用插件中的类和方法。<br>方案弊病：1.插件化只适合一些比较独立的模块；2.必须通过反射机制去调用插件的类和方法，因此，必须搭配一套插件框架来配合使用；<br><a id="more"></a></p>
-<h6 id="dex分包"><a href="#dex分包" class="headerlink" title="dex分包"></a>dex分包</h6><p>替代方案：dex分包的解决方案。<br>原理：将编译好的class文件拆分打包成两个dex，绕过dex方法数量的限制以及安装时的检查，在运行时再动态加载第二个dex文件中。<br>方案详情：除了第一个dex文件（即正常apk包唯一包含的Dex文件），其它dex文件都以资源的方式放在安装包中，并在Application的onCreate回调中被注入到系统的ClassLoader。因此，对于那些在注入之前已经引用到的类（以及它们所在的jar）,必须放入第一个Dex文件中。<br>关于 classloader<br>classloader的子类BaseDexClassLoader,BaseDexClassLoader的子类有DexClassLoader和PathClassLoader。</p>
-<ol>
-<li>关于PathClassLoader，文档中写到： Android uses this class for its system class loader and for its application class loader(s),<br>由此可知，Android应用就是用它来加载;</li>
-<li>DexClass可以加载apk,jar,及dex文件，但PathClassLoader只能加载已安装到系统中（即/data/app目录下）的apk文件。</li>
-</ol>
-<p>注意：1.由于第二个dex包是在Application的onCreate中动态注入的，如果dex包过大，会使app的启动速度变慢，因此，在dex分包过程中一定要注意，第二个dex包不宜过大。<br>    2.由于上述第一点的限制，假如我们的app越来越臃肿和庞大，往往会采取dex分包方案和插件化方案配合使用，将一些非核心独立功能做成插件加载，核心功能再分包加载。</p>
-<h4 id="关于DEX包加载时机"><a href="#关于DEX包加载时机" class="headerlink" title="关于DEX包加载时机"></a>关于DEX包加载时机</h4><p>一般把Service、Receiver、Provider涉及到的代码都放到Main DEX中，而把Activity涉及到的代码进行了一定的拆分，把首页Activity、Laucher Activity、欢迎页的Activity、城市列表页Activity等所依赖的class放到了Main DEX中，把二级、三级页面的Activity以及业务频道的代码放到了Secondary DEX中。<br>Activity是由ActivityThread 通过Instrumentation来启动的，我们是否可以在Instrumentation中做一定的手脚呢？通过分析代码ActivityThread和Instrumentation发现，Instrumentation有关Activity启动相关的方法大概有：execStartActivity、newActivity等等，这样我们就可以在这些方法中添加代码逻辑进行判断这个Class是否加载了，如果加载则直接启动这个Activity，如果没有加载完成则启动一个等待的Activity显示给用户，然后在这个Activity中等待后台Secondary DEX加载完成，完成后自动跳转到用户实际要跳转的Activity。</p>
-<h4 id="ClassLoader方案-（腾讯空间）（此方案为最优方案-重点研究）"><a href="#ClassLoader方案-（腾讯空间）（此方案为最优方案-重点研究）" class="headerlink" title="ClassLoader方案 （腾讯空间）（此方案为最优方案,重点研究）"></a>ClassLoader方案 （腾讯空间）（此方案为最优方案,重点研究）</h4><p>ClassLoader方案支持2.3-6.0，会对启动速度略微有影响，只能在下一次应用启动时生效，在空间中已经有了较长时间的线上应用，如果可以接受在下次启动才应用补丁，是很好的选择。</p>
-<p>我们知道，multidex方案的实现，其实就是把多个dex放进app的classloader之中，从而使得所有dex的类都能被找到。热修复原理是类似的，补丁就是一个dex文件，只是让补丁先被加载，就达到了替换的效果。<br>此方案开源实现有：Nuwa, HotFix, DroidFix。</p>
-<p><a href="http://static.oschina.net/uploads/img/201409/01094253_Ta85.jpg" target="_blank" rel="external">ClassLoader</a></p>
-<h5 id="相关的代码"><a href="#相关的代码" class="headerlink" title="相关的代码:"></a>相关的代码:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//BaseDexClassLoader</span></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</div><div class="line">    Class clazz = pathList.findClass(name);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (clazz == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ClassNotFoundException(name);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> clazz;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//DexPathList</span></div><div class="line"><span class="function"><span class="keyword">public</span> Class <span class="title">findClass</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (Element element : dexElements) &#123;</div><div class="line">        DexFile dex = element.dexFile;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (dex != <span class="keyword">null</span>) &#123;</div><div class="line">            Class clazz = dex.loadClassBinaryName(name, definingContext);</div><div class="line">            <span class="keyword">if</span> (clazz != <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="keyword">return</span> clazz;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// DexFile</span></div><div class="line"><span class="function"><span class="keyword">public</span> Class <span class="title">loadClassBinaryName</span><span class="params">(String name, ClassLoader loader)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> defineClass(name, loader, mCookie);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">static</span> Class <span class="title">defineClass</span><span class="params">(String name, ClassLoader loader, <span class="keyword">int</span> cookie)</span></span>;</div></pre></td></tr></table></figure>
-<p>BaseDexClassLoader中有个pathList对象，pathList中包含一个DexFile的集合dexElements，而对于类加载呢，就是遍历这个集合，通过DexFile去寻找。<br>即：一个ClassLoader可以包含多个dex文件，每个dex文件是一个Element，多个dex文件排列成一个有序的数组dexElements，当找类的时候，会按顺序遍历dex文件，然后从当前遍历的dex文件中找类，如果找类则返回，如果找不到从下一个dex文件继续查找。<br>这样就可以，在这个dexElements中去做一些事情，比如，在这个数组的第一个元素放置我们的patch.jar，里面包含修复过的类，这样的话，当遍历findClass的时候，我们修复的类就会被查找到，从而替代有bug的类。</p>
-<h5 id="CLASS-ISPREVERIFIED的问题"><a href="#CLASS-ISPREVERIFIED的问题" class="headerlink" title="CLASS_ISPREVERIFIED的问题"></a>CLASS_ISPREVERIFIED的问题</h5><p>当一个apk在安装的时候，apk中的classes.dex会被虚拟机(dexopt)优化成odex文件，然后才会拿去执行。<br>虚拟机在启动的时候，会有许多的启动参数，其中一项就是verify选项，当verify选项被打开的时候，就会执行dvmVerifyClass进行类的校验，如果dvmVerifyClass校验类成功，那么这个类会被打上CLASS_ISPREVERIFIED的标志<br>怎么样算是校验类成功？如果static方法、private方法、构造函数等，其中的直接引用（第一层关系）到的类都在同一个dex文件中，那么该类就会被打上CLASS_ISPREVERIFIED标志。<br>我们要做的就是，阻止该类打上CLASS_ISPREVERIFIED的标志。否则加载其他dex的时候会报错。<br>注意下，是阻止引用者的类，也就是说，假设你的app里面有个类叫做LoadBugClass，再其内部引用了BugClass。发布过程中发现BugClass有编写错误，那么想要发布一个新的BugClass类，那么你就要阻止LoadBugClass这个类打上CLASS_ISPREVERIFIED的标志。<br>你在生成apk之前，就需要阻止相关类打上CLASS_ISPREVERIFIED的标志了。对于如何阻止，上面的文章说的很清楚，让LoadBugClass在构造方法中，去引用别的dex文件，比如：hack.dex中的某个类即可。<br>空间使用的是在字节码插入代码,而不是源代码插入，使用的是javaassist库来进行字节码插入的。</p>
-<p>需要做的两件事：1、动态改变BaseDexClassLoader对象间接引用的dexElements；2、在app打包的时候，阻止相关类去打上CLASS_ISPREVERIFIED标志。</p>
-<h4 id="Dexposed方案-（淘宝）"><a href="#Dexposed方案-（淘宝）" class="headerlink" title="Dexposed方案 （淘宝）"></a>Dexposed方案 （淘宝）</h4><p>基于Xposed的AOP框架，方法级粒度，可以进行AOP编程、插桩、热补丁、SDK hook等功能。<br>Xposed需要Root权限，是因为它要修改其他应用、系统的行为，而对单个应用来说，其实不需要root。<br> Xposed通过修改Android Dalvik运行时的Zygote进程，并使用Xposed Bridge来hook方法并注入自己的代码，实现非侵入式的runtime修改。<br>方法级的替换是指，可以在方法前、方法后插入代码，或者直接替换方法。只能针对java方法做拦截，不支持C的方法。<br>缺点：暂时还不支持art，不确定以后支持的时间点。<br>不支持Art模式（5.0+），且写补丁有点困难，需要反射写混淆后的代码，粒度太细，要替换的方法多的话，工作量会比较大。<br>如果线上release版本进行了混淆，那写patch也是一件很痛苦的事情，反射+内部类，可能还有包名和内部类的名字冲突，总而言之就是写得很痛苦。</p>
-<h4 id="AndFix方案-（支付宝）"><a href="#AndFix方案-（支付宝）" class="headerlink" title="AndFix方案 （支付宝）"></a>AndFix方案 （支付宝）</h4><p>同样是方法的hook，AndFix不像Dexposed从Method入手，而是以Field为切入点。<br>使用上，直接写一个新的类，会由补丁工具会生成注解，描述其与要打补丁的类和方法的对应关系。<br>AndFix支持2.3-6.0，可能会有一些机型的坑在里面，毕竟jni层不像java层一样标准，从实现来说，方法类似Dexposed，都是通过jni来替换方法，但是实现上更简洁直接，应用patch不需要重启。但由于从实现上直接跳过了类初始化，设置为初始化完毕，所以像是静态函数、静态成员、构造函数都会出现问题，复杂点的类Class.forname很可能直接就会挂掉。</p>
-<blockquote>
-<p>总的来说，在兼容性稳定性上，ClassLoader方案很可靠，如果需要应用不重启就能修复，而且方法足够简单，可以使用AndFix，而Dexposed由于还不能支持art，所以只能暂时放弃，希望开发者们可以改进使它能支持art模式，毕竟xposed的种种能力还是很吸引人的（比如hook别人app的方法拿到解密后的数据，嘿嘿），还有比如无痕埋点啊线上追踪问题之类的，随时可以下掉。</p>
-</blockquote>
-<p>相关资料：<br><a href="http://blog.zhaiyifan.cn/2015/11/20/HotPatchCompare/" target="_blank" rel="external">http://blog.zhaiyifan.cn/2015/11/20/HotPatchCompare/</a><br><a href="http://my.oschina.net/853294317/blog/308583" target="_blank" rel="external">http://my.oschina.net/853294317/blog/308583</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI1MTA1MzM2Nw==&amp;mid=400118620&amp;idx=1&amp;sn=b4fdd5055731290eef12ad0d17f39d4a&amp;scene=1&amp;srcid=1106Imu9ZgwybID13e7y2nEi#wechat_redirect" target="_blank" rel="external">安卓App热补丁动态修复技术介绍</a><br><a href="http://blog.csdn.net/lmj623565791/article/details/49883661" target="_blank" rel="external">http://blog.csdn.net/lmj623565791/article/details/49883661</a><br><a href="https://github.com/dodola/HotFix" target="_blank" rel="external">https://github.com/dodola/HotFix</a><br>美团分包方案<a href="http://tech.meituan.com/mt-android-auto-split-dex.html" target="_blank" rel="external">http://tech.meituan.com/mt-android-auto-split-dex.html</a><br>腾讯bugly博客<a href="http://bugly.qq.com/blog/?p=781" target="_blank" rel="external">http://bugly.qq.com/blog/?p=781</a><br>dex分包<a href="https://m.oschina.net/blog/308583" target="_blank" rel="external">https://m.oschina.net/blog/308583</a><br><a href="http://www.gitzx.com/android-inject-hook/" target="_blank" rel="external">Android下的挂钩(hook)和代码注入(inject)</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;关于热修复&quot;&gt;&lt;a href=&quot;#关于热修复&quot; class=&quot;headerlink&quot; title=&quot;关于热修复&quot;&gt;&lt;/a&gt;关于热修复&lt;/h3&gt;&lt;h4 id=&quot;DEX分包&quot;&gt;&lt;a href=&quot;#DEX分包&quot; class=&quot;headerlink&quot; title=&quot;DEX分包&quot;&gt;&lt;/a&gt;DEX分包&lt;/h4&gt;&lt;p&gt;ClassLoader方案基于的是android dex分包方案的&lt;/p&gt;
-&lt;h5 id=&quot;方法数天花板&quot;&gt;&lt;a href=&quot;#方法数天花板&quot; class=&quot;headerlink&quot; title=&quot;方法数天花板&quot;&gt;&lt;/a&gt;方法数天花板&lt;/h5&gt;&lt;p&gt;方法数量过多，编译时出错，提示：&lt;br&gt;Conversion to Dalvik format failed:Unable to execute dex: method ID not in [0, 0xffff]: 65536&lt;br&gt;原因：因为在Dalvik指令集里，调用方法的invoke-kind指令中，method reference index只给了16bits，最多能调用65535个方法，所以在生成dex文件的过程中，当方法数超过65535就会报错。&lt;br&gt;This number is significant in that it represents the total number of references that can be invoked by the code within a single Dalvik Executable (dex) bytecode file. &lt;/p&gt;
-&lt;h6 id=&quot;插件化&quot;&gt;&lt;a href=&quot;#插件化&quot; class=&quot;headerlink&quot; title=&quot;插件化&quot;&gt;&lt;/a&gt;插件化&lt;/h6&gt;&lt;p&gt;解决方案：使用的最多的是插件化，即将一些独立的功能做成一个单独的apk，当打开的时候使用DexClassLoader动态加载，然后使用反射机制来调用插件中的类和方法。&lt;br&gt;方案弊病：1.插件化只适合一些比较独立的模块；2.必须通过反射机制去调用插件的类和方法，因此，必须搭配一套插件框架来配合使用；&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Android技术小栈" scheme="http://jijiaxin89.com/categories/Android%E6%8A%80%E6%9C%AF%E5%B0%8F%E6%A0%88/"/>
-    
-    
-      <category term="经验" scheme="http://jijiaxin89.com/tags/%E7%BB%8F%E9%AA%8C/"/>
-    
-      <category term="Android栈" scheme="http://jijiaxin89.com/tags/Android%E6%A0%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Activity的onRestoreInstanceState()</title>
-    <link href="http://jijiaxin89.com/2015/11/23/Activity%E7%9A%84onRestoreInstanceState()/"/>
-    <id>http://jijiaxin89.com/2015/11/23/Activity的onRestoreInstanceState()/</id>
-    <published>2015-11-23T08:13:31.000Z</published>
-    <updated>2017-03-15T16:50:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>本文是官方文档的笔记。</p>
-</blockquote>
-<h4 id="Activity的销毁和恢复行为"><a href="#Activity的销毁和恢复行为" class="headerlink" title="Activity的销毁和恢复行为"></a>Activity的销毁和恢复行为</h4><h5 id="正常应用行为而销毁："><a href="#正常应用行为而销毁：" class="headerlink" title="正常应用行为而销毁："></a>正常应用行为而销毁：</h5><ul>
-<li>用户按返回按钮</li>
-<li>您的Activity通过调用 <code>finish()</code>示意自己的销毁</li>
-</ul>
-<h5 id="非正常销毁："><a href="#非正常销毁：" class="headerlink" title="非正常销毁："></a>非正常销毁：</h5><p>如果Activity当前被停止或长期未使用，或者前台Activity需要更多资源以致系统必须关闭后台进程恢复内存，系统也可能会销毁Activity。</p>
-<h5 id="正常销毁："><a href="#正常销毁：" class="headerlink" title="正常销毁："></a>正常销毁：</h5><p>Activity的实例概念将永久消失，因为行为指示不再需要Activity。<br><a id="more"></a></p>
-<h5 id="非正常销毁：-1"><a href="#非正常销毁：-1" class="headerlink" title="非正常销毁："></a>非正常销毁：</h5><p>如果系统因系统局限性（而非正常应用行为）而销毁Activity，尽管 Activity 实际实例已不在，系统会记住其存在，这样，如果用户导航回实例，系统会使用描述Activity被销毁时状态的一组已保存数据创建Activity的新实例。<br>系统用于恢复先前状态的已保存数据被称为“实例状态”，并且是 Bundle 对象中存储的键值对集合。</p>
-<p>默认情况下，系统会使用 Bundle 实例状态保存您的Activity布局（比如，输入到 EditText 对象中的文本值）中有关每个 View 对象的信息。<br>这样，如果您的Activity实例被销毁并重新创建，布局状态便恢复为其先前的状态，且无需编写代码，系统已经实现。 但是，您的Activity可能具有您要恢复的更多状态信息，比如跟踪用户在Activity中进度的<strong>成员变量</strong>。</p>
-<blockquote>
-<p>为了 Android 系统恢复Activity中视图的状态，每个视图必须具有 android:id 属性提供的唯一 ID。</p>
-</blockquote>
-<p>要保存有关Activity状态的其他数据，您必须替代 <code>onSaveInstanceState()</code> 回调方法。当用户要离开Activity并在Activity意外销毁时向其传递将保存的 Bundle 对象时，系统会调用此方法。 如果系统必须稍后重新创建Activity实例，它会将相同的 Bundle 对象同时传递给 <code>onRestoreInstanceState()</code> 和 <code>onCreate()</code> 方法。<br><a href="http://developer.android.com/images/training/basics/basic-lifecycle-savestate.png" target="_blank" rel="external"></a></p>
-<p>Resumed(visible)—–&gt;<code>onSaveInstanceState()</code>—–&gt;Destroyed<br>app—–<code>onCreate()</code>—–&gt;Created—–&gt;<code>onRestoreInstanceState()</code>—–&gt;Resumed(visible)</p>
-<h4 id="保存Activity状态"><a href="#保存Activity状态" class="headerlink" title="保存Activity状态"></a>保存Activity状态</h4><p>当您的Activity开始停止时，系统会调用 <code>onSaveInstanceState()</code>以便您的Activity可以保存带有键值对集合的状态信息。 此方法的默认实现保存有关Activity视图层次的状态信息，例如 EditText 小工具中的文本或ListView 的滚动位置。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> String STATE_SCORE = <span class="string">"playerScore"</span>;</div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> String STATE_LEVEL = <span class="string">"playerLevel"</span>;</div><div class="line">...</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="comment">// Save the user's current game state</span></div><div class="line">    savedInstanceState.putInt(STATE_SCORE, mCurrentScore);</div><div class="line">    savedInstanceState.putInt(STATE_LEVEL, mCurrentLevel);</div><div class="line">    </div><div class="line">    <span class="comment">// Always call the superclass so it can save the view hierarchy state</span></div><div class="line">    <span class="keyword">super</span>.onSaveInstanceState(savedInstanceState);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：始终调用 <code>onSaveInstanceState()</code> 的超类实现，以便默认实现可以保存视图层次的状态。</p>
-</blockquote>
-<h4 id="恢复Activity状态"><a href="#恢复Activity状态" class="headerlink" title="恢复Activity状态"></a>恢复Activity状态</h4><p>当您的Activity在先前销毁之后重新创建时，您可以从系统向Activity传递的 Bundle 恢复已保存的状态。<code>onCreate()</code> 和 <code>onRestoreInstanceState()</code> 回调方法均接收包含实例状态信息的相同 Bundle。</p>
-<p><strong>因为无论系统正在创建Activity的新实例还是重新创建先前的实例</strong>，都会调用 <code>onCreate()</code> 方法，因此您必须在尝试读取它之前检查状态 Bundle 是否为 null。 如果为 null，则系统将创建Activity的新实例，而不是恢复已销毁的先前实例。</p>
-<p>说白了就是无论新创建activity实例，还是恢复activity实例，都是新建实例，区别仅仅是目的纯洁的创建，还有有目的的去新建个用来取代，所以<code>oncreate()</code>参数都有Bundle</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState); <span class="comment">// Always call the superclass first</span></div><div class="line">   </div><div class="line">    <span class="comment">// Check whether we're recreating a previously destroyed instance</span></div><div class="line">    <span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="comment">// Restore value of members from saved state</span></div><div class="line">        mCurrentScore = savedInstanceState.getInt(STATE_SCORE);</div><div class="line">        mCurrentLevel = savedInstanceState.getInt(STATE_LEVEL);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// Probably initialize members with default values for a new instance</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>您可以选择实现<strong>系统在 <code>onStart()</code> 方法之后调用的 <code>onRestoreInstanceState()</code> </strong>，而不是在<code>onCreate()</code> 期间恢复状态。 系统只在存在要恢复的已保存状态时调用 <code>onRestoreInstanceState()</code> ，因此您无需检查 Bundle 是否为 null：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRestoreInstanceState</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="comment">// Always call the superclass so it can restore the view hierarchy</span></div><div class="line">    <span class="keyword">super</span>.onRestoreInstanceState(savedInstanceState);</div><div class="line">   </div><div class="line">    <span class="comment">// Restore state members from saved instance</span></div><div class="line">    mCurrentScore = savedInstanceState.getInt(STATE_SCORE);</div><div class="line">    mCurrentLevel = savedInstanceState.getInt(STATE_LEVEL);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>始终调用 <code>onSaveInstanceState()</code> 的超类实现，以便默认实现可以恢复视图层次的状态,且留意顺序，保存的时候先保存再调超类，回复的时候先调超类恢复view状态，再读出来保存的变量。</p>
-</blockquote>
-<p><a href="http://developer.android.com/intl/zh-cn/training/basics/activity-lifecycle/recreating.html" target="_blank" rel="external">http://developer.android.com/intl/zh-cn/training/basics/activity-lifecycle/recreating.html</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是官方文档的笔记。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&quot;Activity的销毁和恢复行为&quot;&gt;&lt;a href=&quot;#Activity的销毁和恢复行为&quot; class=&quot;headerlink&quot; title=&quot;Activity的销毁和恢复行为&quot;&gt;&lt;/a&gt;Activity的销毁和恢复行为&lt;/h4&gt;&lt;h5 id=&quot;正常应用行为而销毁：&quot;&gt;&lt;a href=&quot;#正常应用行为而销毁：&quot; class=&quot;headerlink&quot; title=&quot;正常应用行为而销毁：&quot;&gt;&lt;/a&gt;正常应用行为而销毁：&lt;/h5&gt;&lt;ul&gt;
-&lt;li&gt;用户按返回按钮&lt;/li&gt;
-&lt;li&gt;您的Activity通过调用 &lt;code&gt;finish()&lt;/code&gt;示意自己的销毁&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&quot;非正常销毁：&quot;&gt;&lt;a href=&quot;#非正常销毁：&quot; class=&quot;headerlink&quot; title=&quot;非正常销毁：&quot;&gt;&lt;/a&gt;非正常销毁：&lt;/h5&gt;&lt;p&gt;如果Activity当前被停止或长期未使用，或者前台Activity需要更多资源以致系统必须关闭后台进程恢复内存，系统也可能会销毁Activity。&lt;/p&gt;
-&lt;h5 id=&quot;正常销毁：&quot;&gt;&lt;a href=&quot;#正常销毁：&quot; class=&quot;headerlink&quot; title=&quot;正常销毁：&quot;&gt;&lt;/a&gt;正常销毁：&lt;/h5&gt;&lt;p&gt;Activity的实例概念将永久消失，因为行为指示不再需要Activity。&lt;br&gt;
     
     </summary>
     
