@@ -44,19 +44,26 @@
     <link href="http://jijiaxin89.com/2017/03/16/study-notes-2/"/>
     <id>http://jijiaxin89.com/2017/03/16/study-notes-2/</id>
     <published>2017-03-16T02:34:05.000Z</published>
-    <updated>2017-03-16T03:01:02.000Z</updated>
+    <updated>2017-03-30T07:55:26.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="3-16号-周四"><a href="#3-16号-周四" class="headerlink" title="3/16号  周四"></a>3/16号  周四</h3><p>Mac 终端按tab键 自动补全忽略大小写</p>
-<p>打开终端，输入：<br>nano .inputrc</p>
-<p>在里面粘贴上以下语句：</p>
+    <content type="html"><![CDATA[<h3 id="3-16号-周四"><a href="#3-16号-周四" class="headerlink" title="3/16号  周四"></a>3/16号  周四</h3><p>Mac 终端按tab键 自动补全忽略大小写方法：<br>打开终端，输入：<br>nano .inputrc<br>在里面粘贴上以下语句：</p>
 <p>set completion-ignore-case on<br>set show-all-if-ambiguous on<br>TAB: menu-complete</p>
-<p>Control+O，回车保存，重启终端，OK！</p>
+<p>Control+O，回车保存，重启终端，OK！<br><a id="more"></a></p>
+<h3 id="3-30号-周四"><a href="#3-30号-周四" class="headerlink" title="3/30号  周四"></a>3/30号  周四</h3><ul>
+<li>Command    ⌘    </li>
+<li>Option     ⌥    </li>
+<li>Caps Lock  ⇪</li>
+<li>Shift      ⇧      </li>
+<li>Control    ⌃   </li>
+<li>Fn</li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;3-16号-周四&quot;&gt;&lt;a href=&quot;#3-16号-周四&quot; class=&quot;headerlink&quot; title=&quot;3/16号  周四&quot;&gt;&lt;/a&gt;3/16号  周四&lt;/h3&gt;&lt;p&gt;Mac 终端按tab键 自动补全忽略大小写&lt;/p&gt;
-&lt;p&gt;打开终端，输入：&lt;br&gt;nan
+      &lt;h3 id=&quot;3-16号-周四&quot;&gt;&lt;a href=&quot;#3-16号-周四&quot; class=&quot;headerlink&quot; title=&quot;3/16号  周四&quot;&gt;&lt;/a&gt;3/16号  周四&lt;/h3&gt;&lt;p&gt;Mac 终端按tab键 自动补全忽略大小写方法：&lt;br&gt;打开终端，输入：&lt;br&gt;nano .inputrc&lt;br&gt;在里面粘贴上以下语句：&lt;/p&gt;
+&lt;p&gt;set completion-ignore-case on&lt;br&gt;set show-all-if-ambiguous on&lt;br&gt;TAB: menu-complete&lt;/p&gt;
+&lt;p&gt;Control+O，回车保存，重启终端，OK！&lt;br&gt;
     
     </summary>
     
